@@ -1,0 +1,16 @@
+[project]
+name = "video-timesformer"
+version = "0.1.0"
+description = "TimeSformer video classifier trained on frame folders"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "einops>=0.8.2",
+    "matplotlib>=3.11.1",
+    "pillow>=12.3.0",
+    "timm>=1.0.28",
+    "torch>=2.13.0",
+    "torchvision>=0.28.0",
+    "tqdm>=4.70.0",
+    "yt-dlp>=2026.7.4",
+]
