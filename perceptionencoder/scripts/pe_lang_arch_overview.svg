@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="880" viewBox="0 0 1400 880">
+
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0b1220"/>
+      <stop offset="100%" stop-color="#152033"/>
+    </linearGradient>
+    <linearGradient id="gBlue" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#1e3a5f"/><stop offset="100%" stop-color="#254a73"/>
+    </linearGradient>
+    <linearGradient id="gGreen" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#1a4d3a"/><stop offset="100%" stop-color="#1f6348"/>
+    </linearGradient>
+    <linearGradient id="gBrown" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#4a3420"/><stop offset="100%" stop-color="#5c4228"/>
+    </linearGradient>
+    <linearGradient id="gPurp" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#3a2a55"/><stop offset="100%" stop-color="#4a3670"/>
+    </linearGradient>
+    <linearGradient id="gTeal" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#1f4a5c"/><stop offset="100%" stop-color="#276078"/>
+    </linearGradient>
+    <linearGradient id="gRed" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#5c2a2a"/><stop offset="100%" stop-color="#7a3434"/>
+    </linearGradient>
+    <linearGradient id="gOk" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#1d5c38"/><stop offset="100%" stop-color="#247a48"/>
+    </linearGradient>
+    <marker id="arr" markerWidth="10" markerHeight="10" refX="8" refY="4" orient="auto">
+      <path d="M0,0 L8,4 L0,8 Z" fill="#8fa3bf"/>
+    </marker>
+    <filter id="soft" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="#000" flood-opacity="0.35"/>
+    </filter>
+    <style>
+      .title { font: 700 28px ui-sans-serif, system-ui, sans-serif; fill: #f2f6fc; }
+      .sub { font: 400 14px ui-sans-serif, system-ui, sans-serif; fill: #8fa3bf; }
+      .boxh { font: 700 15px ui-sans-serif, system-ui, sans-serif; fill: #f2f6fc; }
+      .boxs { font: 400 12px ui-sans-serif, system-ui, sans-serif; fill: #b8c7da; }
+      .mono { font: 500 12px ui-monospace, Menlo, monospace; fill: #c9d6e8; }
+      .lbl { font: 600 11px ui-sans-serif, system-ui, sans-serif; fill: #9eb0c7; }
+      .stage { font: 700 12px ui-sans-serif, system-ui, sans-serif; fill: #7d93ad; letter-spacing: 0.06em; }
+      .ok { font: 700 13px ui-sans-serif, system-ui, sans-serif; fill: #7dffb0; }
+      .bad { font: 700 13px ui-sans-serif, system-ui, sans-serif; fill: #ff9b9b; }
+      .emph { font: 600 13px ui-sans-serif, system-ui, sans-serif; fill: #e8c48a; }
+      .big { font: 700 18px ui-sans-serif, system-ui, sans-serif; fill: #f2f6fc; }
+      .tiny { font: 400 11px ui-sans-serif, system-ui, sans-serif; fill: #8fa3bf; }
+    </style>
+  </defs>
+
+  <rect width="1400" height="880" fill="url(#bg)"/>
+  <text x="48" y="44" class="title">PE-Lang Architecture (after language alignment)</text>
+  <text x="48" y="70" class="sub">Lift PE-Core’s strong mid-layer features to the output, then use them as eyes for an MLLM</text>
+
+  <!-- Before -->
+  <rect x="48" y="96" width="640" height="220" rx="16" fill="#101824" stroke="#2a3c52"/>
+  <text x="68" y="126" class="stage">START FROM PE-CORE VISION</text>
+  <g filter="url(#soft)">
+    <rect x="80" y="148" width="560" height="48" rx="10" fill="url(#gBlue)" stroke="#5a7eab"/>
+    <text x="360" y="178" text-anchor="middle" class="boxh">PE-Core ViT  (pretrained contrastive)</text>
+  </g>
+  <line x1="360" y1="196" x2="360" y2="218" stroke="#8fa3bf" stroke-width="2" marker-end="url(#arr)"/>
+  <g filter="url(#soft)">
+    <rect x="80" y="218" width="560" height="70" rx="10" fill="url(#gBrown)" stroke="#a07848"/>
+    <text x="360" y="248" text-anchor="middle" class="boxh">Drop last ~3 layers</text>
+    <text x="360" y="270" text-anchor="middle" class="boxs">use earlier layers where general features peak</text>
+  </g>
+
+  <!-- Align recipe -->
+  <rect x="712" y="96" width="640" height="220" rx="16" fill="#101824" stroke="#2a3c52"/>
+  <text x="732" y="126" class="stage">ALIGNMENT RECIPE</text>
+  <text x="732" y="158" class="boxs">Connect vision → 2-layer MLP projector → LLM</text>
+  <text x="732" y="182" class="boxs">Unfreeze encoder + decoder</text>
+  <text x="732" y="206" class="boxs">Train with next-token prediction (~70M samples)</text>
+  <text x="732" y="230" class="tiny">OCR Q&amp;A · captioning · image VQA · video Q&amp;A</text>
+  <text x="732" y="254" class="emph">Goal: move best features to the final layer</text>
+  <text x="732" y="278" class="tiny">Then extract vision tower only → PE-Lang</text>
+
+  <!-- Aligned stack -->
+  <text x="48" y="350" class="stage">ALIGNED STACK  (during training)</text>
+
+  <g filter="url(#soft)">
+    <rect x="48" y="370" width="220" height="110" rx="14" fill="url(#gBlue)" stroke="#5a7eab"/>
+    <text x="158" y="410" text-anchor="middle" class="boxh">Image / Video</text>
+    <text x="158" y="434" text-anchor="middle" class="boxs">visual tokens</text>
+  </g>
+  <line x1="268" y1="425" x2="304" y2="425" stroke="#8fa3bf" stroke-width="2" marker-end="url(#arr)"/>
+
+  <g filter="url(#soft)">
+    <rect x="308" y="370" width="240" height="110" rx="14" fill="url(#gTeal)" stroke="#4a8aa0"/>
+    <text x="428" y="404" text-anchor="middle" class="boxh">PE-Lang vision</text>
+    <text x="428" y="428" text-anchor="middle" class="boxs">aligned ViT</text>
+    <text x="428" y="452" text-anchor="middle" class="ok">best features at OUTPUT</text>
+  </g>
+  <line x1="548" y1="425" x2="584" y2="425" stroke="#8fa3bf" stroke-width="2" marker-end="url(#arr)"/>
+
+  <g filter="url(#soft)">
+    <rect x="588" y="370" width="220" height="110" rx="14" fill="url(#gPurp)" stroke="#7a62a0"/>
+    <text x="698" y="410" text-anchor="middle" class="boxh">MLP projector</text>
+    <text x="698" y="434" text-anchor="middle" class="boxs">2-layer</text>
+    <text x="698" y="456" text-anchor="middle" class="tiny">vision → LLM space</text>
+  </g>
+  <line x1="808" y1="425" x2="844" y2="425" stroke="#8fa3bf" stroke-width="2" marker-end="url(#arr)"/>
+
+  <g filter="url(#soft)">
+    <rect x="848" y="370" width="260" height="110" rx="14" fill="url(#gBrown)" stroke="#a07848"/>
+    <text x="978" y="404" text-anchor="middle" class="boxh">Language decoder</text>
+    <text x="978" y="428" text-anchor="middle" class="boxs">e.g. Llama 3.2 3B</text>
+    <text x="978" y="452" text-anchor="middle" class="tiny">autoregressive tokens</text>
+  </g>
+  <line x1="1108" y1="425" x2="1144" y2="425" stroke="#8fa3bf" stroke-width="2" marker-end="url(#arr)"/>
+
+  <g filter="url(#soft)">
+    <rect x="1148" y="370" width="204" height="110" rx="14" fill="url(#gOk)" stroke="#4e9a6e"/>
+    <text x="1250" y="410" text-anchor="middle" class="boxh">Generated text</text>
+    <text x="1250" y="434" text-anchor="middle" class="boxs">answer / caption</text>
+    <text x="1250" y="456" text-anchor="middle" class="tiny">VQA, OCR, …</text>
+  </g>
+
+  <!-- Result product -->
+  <rect x="48" y="520" width="1304" height="140" rx="16" fill="#101824" stroke="#2a3c52"/>
+  <text x="68" y="554" class="stage">PRODUCT: PE-LANG ENCODER</text>
+  <text x="68" y="586" class="boxh">After alignment, keep the vision tower (PE-Lang) as a drop-in MLLM vision encoder</text>
+  <text x="68" y="614" class="boxs">Works with other LLMs too (projector + LM retrained; PE-Lang can stay frozen) — features are generally language-ready</text>
+  <text x="68" y="640" class="tiny">Contrast with PE-Core: PE-Lang outputs token features for a decoder, not a single CLIP vector for cosine search</text>
+
+  <rect x="48" y="686" width="640" height="160" rx="14" fill="#121a26" stroke="#2a3c52"/>
+  <text x="68" y="720" class="boxh">PE-Core vs PE-Lang (role)</text>
+  <text x="68" y="750" class="ok">PE-Core → retrieval / classification (similarity)</text>
+  <text x="68" y="776" class="ok">PE-Lang → MLLM perception (token features)</text>
+  <text x="68" y="804" class="tiny">Same PE family; different head / training / interface</text>
+
+  <rect x="712" y="686" width="640" height="160" rx="14" fill="#121a26" stroke="#2a3c52"/>
+  <text x="732" y="720" class="boxh">Key insight from the PE paper</text>
+  <text x="732" y="750" class="boxs">Contrastive pretraining already learns rich features,</text>
+  <text x="732" y="774" class="boxs">but they hide in intermediate layers of PE-Core.</text>
+  <text x="732" y="798" class="emph">Language alignment “lifts” them to the last layer.</text>
+  <text x="732" y="822" class="tiny">Much less data than pretraining (~70M vs web-scale)</text>
+</svg>

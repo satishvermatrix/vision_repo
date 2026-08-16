@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="820" viewBox="0 0 1400 820">
+
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0b1220"/>
+      <stop offset="100%" stop-color="#152033"/>
+    </linearGradient>
+    <linearGradient id="gBlue" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#1e3a5f"/><stop offset="100%" stop-color="#254a73"/>
+    </linearGradient>
+    <linearGradient id="gGreen" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#1a4d3a"/><stop offset="100%" stop-color="#1f6348"/>
+    </linearGradient>
+    <linearGradient id="gBrown" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#4a3420"/><stop offset="100%" stop-color="#5c4228"/>
+    </linearGradient>
+    <linearGradient id="gPurp" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#3a2a55"/><stop offset="100%" stop-color="#4a3670"/>
+    </linearGradient>
+    <linearGradient id="gTeal" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#1f4a5c"/><stop offset="100%" stop-color="#276078"/>
+    </linearGradient>
+    <linearGradient id="gRed" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#5c2a2a"/><stop offset="100%" stop-color="#7a3434"/>
+    </linearGradient>
+    <linearGradient id="gOk" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#1d5c38"/><stop offset="100%" stop-color="#247a48"/>
+    </linearGradient>
+    <marker id="arr" markerWidth="10" markerHeight="10" refX="8" refY="4" orient="auto">
+      <path d="M0,0 L8,4 L0,8 Z" fill="#8fa3bf"/>
+    </marker>
+    <filter id="soft" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="#000" flood-opacity="0.35"/>
+    </filter>
+    <style>
+      .title { font: 700 28px ui-sans-serif, system-ui, sans-serif; fill: #f2f6fc; }
+      .sub { font: 400 14px ui-sans-serif, system-ui, sans-serif; fill: #8fa3bf; }
+      .boxh { font: 700 15px ui-sans-serif, system-ui, sans-serif; fill: #f2f6fc; }
+      .boxs { font: 400 12px ui-sans-serif, system-ui, sans-serif; fill: #b8c7da; }
+      .mono { font: 500 12px ui-monospace, Menlo, monospace; fill: #c9d6e8; }
+      .lbl { font: 600 11px ui-sans-serif, system-ui, sans-serif; fill: #9eb0c7; }
+      .stage { font: 700 12px ui-sans-serif, system-ui, sans-serif; fill: #7d93ad; letter-spacing: 0.06em; }
+      .ok { font: 700 13px ui-sans-serif, system-ui, sans-serif; fill: #7dffb0; }
+      .bad { font: 700 13px ui-sans-serif, system-ui, sans-serif; fill: #ff9b9b; }
+      .emph { font: 600 13px ui-sans-serif, system-ui, sans-serif; fill: #e8c48a; }
+      .big { font: 700 18px ui-sans-serif, system-ui, sans-serif; fill: #f2f6fc; }
+      .tiny { font: 400 11px ui-sans-serif, system-ui, sans-serif; fill: #8fa3bf; }
+    </style>
+  </defs>
+
+  <rect width="1400" height="820" fill="url(#bg)"/>
+  <text x="48" y="44" class="title">PE-Core Architecture</text>
+  <text x="48" y="70" class="sub">Contrastive dual encoder — global vision ↔ text alignment in one shared vector space</text>
+
+  <rect x="48" y="90" width="1304" height="42" rx="10" fill="#141e2c" stroke="#3a4f68"/>
+  <text x="68" y="116" class="emph">Training objective: InfoNCE / contrastive loss  ·  pull matching image–text pairs  ·  push non-matches</text>
+
+  <!-- Vision column -->
+  <rect x="48" y="156" width="520" height="520" rx="16" fill="#101824" stroke="#2a3c52"/>
+  <text x="68" y="186" class="stage">VISION TOWER</text>
+
+  <g filter="url(#soft)">
+    <rect x="80" y="210" width="456" height="56" rx="12" fill="url(#gBlue)" stroke="#5a7eab"/>
+    <text x="308" y="234" text-anchor="middle" class="boxh">Image / Video frames</text>
+    <text x="308" y="254" text-anchor="middle" class="boxs">patchify → tokens</text>
+  </g>
+  <line x1="308" y1="266" x2="308" y2="290" stroke="#8fa3bf" stroke-width="2" marker-end="url(#arr)"/>
+
+  <g filter="url(#soft)">
+    <rect x="80" y="290" width="456" height="90" rx="12" fill="url(#gBlue)" stroke="#5a7eab"/>
+    <text x="308" y="320" text-anchor="middle" class="boxh">ViT backbone</text>
+    <text x="308" y="342" text-anchor="middle" class="boxs">deep transformer stack</text>
+    <text x="308" y="362" text-anchor="middle" class="tiny">strong features often in intermediate layers</text>
+  </g>
+  <line x1="308" y1="380" x2="308" y2="404" stroke="#8fa3bf" stroke-width="2" marker-end="url(#arr)"/>
+
+  <g filter="url(#soft)">
+    <rect x="80" y="404" width="456" height="70" rx="12" fill="url(#gTeal)" stroke="#4a8aa0"/>
+    <text x="308" y="434" text-anchor="middle" class="boxh">Attention pooling</text>
+    <text x="308" y="456" text-anchor="middle" class="boxs">collapse tokens → one global vector</text>
+  </g>
+  <line x1="308" y1="474" x2="308" y2="498" stroke="#8fa3bf" stroke-width="2" marker-end="url(#arr)"/>
+
+  <g filter="url(#soft)">
+    <rect x="80" y="498" width="456" height="70" rx="12" fill="url(#gGreen)" stroke="#4e9a6e"/>
+    <text x="308" y="528" text-anchor="middle" class="boxh">Vision embedding  v</text>
+    <text x="308" y="550" text-anchor="middle" class="mono">L2-normalized · shared dim D</text>
+  </g>
+
+  <text x="308" y="610" text-anchor="middle" class="lbl">output used for retrieval / zero-shot class</text>
+  <text x="308" y="632" text-anchor="middle" class="tiny">best “general” features may still sit mid-network</text>
+  <text x="308" y="650" text-anchor="middle" class="tiny">(PE paper: hidden until alignment)</text>
+
+  <!-- Text column -->
+  <rect x="832" y="156" width="520" height="520" rx="16" fill="#101824" stroke="#2a3c52"/>
+  <text x="852" y="186" class="stage">TEXT TOWER</text>
+
+  <g filter="url(#soft)">
+    <rect x="864" y="210" width="456" height="56" rx="12" fill="url(#gBrown)" stroke="#a07848"/>
+    <text x="1092" y="234" text-anchor="middle" class="boxh">Caption / class name / query</text>
+    <text x="1092" y="254" text-anchor="middle" class="boxs">tokenize → token ids</text>
+  </g>
+  <line x1="1092" y1="266" x2="1092" y2="290" stroke="#8fa3bf" stroke-width="2" marker-end="url(#arr)"/>
+
+  <g filter="url(#soft)">
+    <rect x="864" y="290" width="456" height="90" rx="12" fill="url(#gBrown)" stroke="#a07848"/>
+    <text x="1092" y="320" text-anchor="middle" class="boxh">Text Transformer</text>
+    <text x="1092" y="342" text-anchor="middle" class="boxs">contextualize tokens</text>
+    <text x="1092" y="362" text-anchor="middle" class="tiny">EOS / pooled text feature</text>
+  </g>
+  <line x1="1092" y1="380" x2="1092" y2="404" stroke="#8fa3bf" stroke-width="2" marker-end="url(#arr)"/>
+
+  <g filter="url(#soft)">
+    <rect x="864" y="404" width="456" height="70" rx="12" fill="url(#gTeal)" stroke="#4a8aa0"/>
+    <text x="1092" y="434" text-anchor="middle" class="boxh">Text projection</text>
+    <text x="1092" y="456" text-anchor="middle" class="boxs">map into joint space</text>
+  </g>
+  <line x1="1092" y1="474" x2="1092" y2="498" stroke="#8fa3bf" stroke-width="2" marker-end="url(#arr)"/>
+
+  <g filter="url(#soft)">
+    <rect x="864" y="498" width="456" height="70" rx="12" fill="url(#gGreen)" stroke="#4e9a6e"/>
+    <text x="1092" y="528" text-anchor="middle" class="boxh">Text embedding  q</text>
+    <text x="1092" y="550" text-anchor="middle" class="mono">L2-normalized · same dim D</text>
+  </g>
+
+  <text x="1092" y="610" text-anchor="middle" class="lbl">same space as vision</text>
+  <text x="1092" y="632" text-anchor="middle" class="tiny">encode once → reuse for many videos</text>
+
+  <!-- Center similarity -->
+  <g filter="url(#soft)">
+    <rect x="590" y="340" width="220" height="140" rx="16" fill="url(#gPurp)" stroke="#7a62a0"/>
+    <text x="700" y="380" text-anchor="middle" class="boxh">Similarity</text>
+    <text x="700" y="408" text-anchor="middle" class="mono">score = v · q</text>
+    <text x="700" y="432" text-anchor="middle" class="boxs">(× logit_scale)</text>
+    <text x="700" y="456" text-anchor="middle" class="tiny">retrieval / classification</text>
+  </g>
+  <line x1="536" y1="410" x2="586" y2="410" stroke="#8fa3bf" stroke-width="2" marker-end="url(#arr)"/>
+  <line x1="864" y1="410" x2="814" y2="410" stroke="#8fa3bf" stroke-width="2" marker-end="url(#arr)"/>
+
+  <rect x="48" y="700" width="1304" height="90" rx="14" fill="#101824" stroke="#2a3c52"/>
+  <text x="68" y="732" class="boxh">What PE-Core is good at</text>
+  <text x="68" y="758" class="boxs">Zero-shot retrieval · zero-shot classification · ranking video chunks by text · open-vocab matching</text>
+  <text x="68" y="778" class="tiny">What it is NOT by itself: free-form answers, multi-step reasoning, or VQA — no language decoder, only a similarity score</text>
+</svg>

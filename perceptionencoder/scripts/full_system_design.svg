@@ -1,0 +1,198 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1100" viewBox="0 0 1600 1100" role="img" aria-label="videosearch full system design">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0c1017"/>
+      <stop offset="100%" stop-color="#151e2e"/>
+    </linearGradient>
+    <marker id="arr" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L6,3 L0,6 Z" fill="#9aabb8"/>
+    </marker>
+    <marker id="arrG" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L6,3 L0,6 Z" fill="#9aabb8"/>
+    </marker>
+    <style>
+      .title { font: 700 28px ui-sans-serif, system-ui, sans-serif; fill: #f0f4fa; }
+      .sub { font: 400 14px ui-sans-serif, system-ui, sans-serif; fill: #8fa3bf; }
+      .h { font: 700 13px ui-sans-serif, system-ui, sans-serif; fill: #eef3fa; }
+      .t { font: 500 12px ui-sans-serif, system-ui, sans-serif; fill: #d5deeb; }
+      .s { font: 400 11px ui-sans-serif, system-ui, sans-serif; fill: #8fa3bf; }
+      .mono { font: 500 11px ui-monospace, Menlo, monospace; fill: #c9d6e8; }
+      .tiny { font: 400 10px ui-sans-serif, system-ui, sans-serif; fill: #7a8ea8; }
+      .box { stroke-width: 1.4; }
+    </style>
+  </defs>
+
+  <rect width="1600" height="1100" fill="url(#bg)"/>
+  <text x="48" y="44" class="title">videosearch - Full System Design</text>
+  <text x="48" y="68" class="sub">Video to chunks to PE-Core embeddings to ranking to Qwen3-VL verification</text>
+
+  <!-- ========== ROW 1: INGEST ========== -->
+  <rect x="40" y="90" width="1520" height="150" rx="14" fill="#121a26" stroke="#2d4058"/>
+  <text x="56" y="116" class="h">1. INGEST  /  DATA</text>
+
+  <rect x="56" y="132" width="220" height="88" rx="10" fill="#1b2a40" stroke="#456189"/>
+  <text x="72" y="158" class="t">Video sources</text>
+  <text x="72" y="178" class="mono">data/events/*.mp4</text>
+  <text x="72" y="196" class="s">Kinetics event subset (~1000)</text>
+
+  <rect x="300" y="132" width="240" height="88" rx="10" fill="#1b2a40" stroke="#456189"/>
+  <text x="316" y="158" class="t">cli.py  index</text>
+  <text x="316" y="178" class="mono">videosearch index</text>
+  <text x="316" y="196" class="s">walk videos, build index</text>
+
+  <rect x="564" y="132" width="280" height="88" rx="10" fill="#243449" stroke="#507094"/>
+  <text x="580" y="158" class="t">chunker.py</text>
+  <text x="580" y="178" class="mono">2s windows, 8 frames</text>
+  <text x="580" y="196" class="s">OpenCV seek+decode (CPU)</text>
+
+  <rect x="868" y="132" width="300" height="88" rx="10" fill="#1a3d2a" stroke="#3d7a55"/>
+  <text x="884" y="158" class="t">Chunk</text>
+  <text x="884" y="178" class="mono">{video, start, end, frames[]}</text>
+  <text x="884" y="196" class="s">PIL RGB frames per window</text>
+
+  <rect x="1192" y="132" width="340" height="88" rx="10" fill="#2a1f18" stroke="#8a5a35"/>
+  <text x="1208" y="158" class="t">Hardware split</text>
+  <text x="1208" y="178" class="s">CPU: decode / preprocess</text>
+  <text x="1208" y="196" class="s">GPU: PE + VLM inference</text>
+
+  <line x1="276" y1="176" x2="300" y2="176" stroke="#9aabb8" stroke-width="1.5" marker-end="url(#arrG)"/>
+  <line x1="540" y1="176" x2="564" y2="176" stroke="#9aabb8" stroke-width="1.5" marker-end="url(#arrG)"/>
+  <line x1="844" y1="176" x2="868" y2="176" stroke="#9aabb8" stroke-width="1.5" marker-end="url(#arrG)"/>
+
+  <!-- ========== ROW 2: PE EMBED ========== -->
+  <rect x="40" y="260" width="1520" height="200" rx="14" fill="#121a26" stroke="#2d4058"/>
+  <text x="56" y="286" class="h">2. PE-CORE EMBEDDING  (CLIP-style alignment)</text>
+
+  <rect x="56" y="304" width="360" height="136" rx="10" fill="#2a1f18" stroke="#8a5a35"/>
+  <text x="72" y="328" class="t">pe_model.py</text>
+  <text x="72" y="348" class="mono">PE-Core-L14-336</text>
+  <text x="72" y="368" class="s">vendor/perception_models</text>
+  <text x="72" y="386" class="s">.pt weights (~671M)</text>
+  <text x="72" y="404" class="s">vision tower + text tower</text>
+  <text x="72" y="422" class="s">shared 1024-d space</text>
+
+  <rect x="444" y="304" width="320" height="136" rx="10" fill="#1a3d2a" stroke="#3d7a55"/>
+  <text x="460" y="328" class="t">Vision path (index)</text>
+  <text x="460" y="350" class="mono">embed_images(frames)</text>
+  <text x="460" y="370" class="mono">mean-pool -&gt; L2-norm</text>
+  <text x="460" y="390" class="s">encode_image (GPU bf16)</text>
+  <text x="460" y="410" class="s">one vector per chunk</text>
+
+  <rect x="792" y="304" width="320" height="136" rx="10" fill="#1a3d2a" stroke="#3d7a55"/>
+  <text x="808" y="328" class="t">Text path (query/event)</text>
+  <text x="808" y="350" class="mono">embed_texts(prompts)</text>
+  <text x="808" y="370" class="s">tokenizer + text tower</text>
+  <text x="808" y="390" class="s">NLQ or event prompts</text>
+  <text x="808" y="410" class="s">L2-normalized 1024-d</text>
+
+  <rect x="1140" y="304" width="392" height="136" rx="10" fill="#243449" stroke="#507094"/>
+  <text x="1156" y="328" class="t">indexer.py  writes</text>
+  <text x="1156" y="350" class="mono">embeddings.npy  N x 1024</text>
+  <text x="1156" y="370" class="mono">chunks.json  video/start/end</text>
+  <text x="1156" y="390" class="mono">config.json  model settings</text>
+  <text x="1156" y="414" class="s">data/index_events/</text>
+
+  <line x1="416" y1="372" x2="444" y2="372" stroke="#9aabb8" stroke-width="1.5" marker-end="url(#arrG)"/>
+  <line x1="764" y1="372" x2="792" y2="372" stroke="#9aabb8" stroke-width="1.5" marker-end="url(#arrG)"/>
+  <line x1="1112" y1="360" x2="1140" y2="360" stroke="#9aabb8" stroke-width="1.5" marker-end="url(#arrG)"/>
+
+  <!-- ========== ROW 3: RANKING ========== -->
+  <rect x="40" y="480" width="1520" height="170" rx="14" fill="#121a26" stroke="#2d4058"/>
+  <text x="56" y="506" class="h">3. RANKING  /  EVENT CANDIDATE RETRIEVAL</text>
+
+  <rect x="56" y="524" width="280" height="106" rx="10" fill="#1b2a40" stroke="#456189"/>
+  <text x="72" y="548" class="t">events.py catalog</text>
+  <text x="72" y="568" class="mono">fight / aggression</text>
+  <text x="72" y="586" class="mono">fall / crowd / self-harm</text>
+  <text x="72" y="606" class="s">multi PE prompts per event</text>
+
+  <rect x="360" y="524" width="300" height="106" rx="10" fill="#243449" stroke="#507094"/>
+  <text x="376" y="548" class="t">cascade.py / search.py</text>
+  <text x="376" y="568" class="mono">scores = emb @ text.T</text>
+  <text x="376" y="586" class="s">max over prompts, top-k</text>
+  <text x="376" y="606" class="s">filter min_pe_score</text>
+
+  <rect x="684" y="524" width="300" height="106" rx="10" fill="#1a3d2a" stroke="#3d7a55"/>
+  <text x="700" y="548" class="t">PE candidates</text>
+  <text x="700" y="568" class="mono">[{video, start, end, pe_score}]</text>
+  <text x="700" y="586" class="s">recall-oriented shortlist</text>
+  <text x="700" y="606" class="s">may include false positives</text>
+
+  <rect x="1008" y="524" width="524" height="106" rx="10" fill="#2a1f18" stroke="#8a5a35"/>
+  <text x="1024" y="548" class="t">Also: plain NLQ search</text>
+  <text x="1024" y="568" class="mono">videosearch search "..."</text>
+  <text x="1024" y="586" class="s">same cosine ranking, no event catalog</text>
+  <text x="1024" y="606" class="s">optional ffmpeg --export-clips</text>
+
+  <line x1="336" y1="577" x2="360" y2="577" stroke="#9aabb8" stroke-width="1.5" marker-end="url(#arrG)"/>
+  <line x1="660" y1="577" x2="684" y2="577" stroke="#9aabb8" stroke-width="1.5" marker-end="url(#arrG)"/>
+
+  <!-- ========== ROW 4: VLM ========== -->
+  <rect x="40" y="670" width="1520" height="220" rx="14" fill="#121a26" stroke="#2d4058"/>
+  <text x="56" y="696" class="h">4. VLM VERIFICATION  (precision / false-positive filter)</text>
+
+  <rect x="56" y="714" width="280" height="156" rx="10" fill="#243449" stroke="#507094"/>
+  <text x="72" y="738" class="t">frames.py</text>
+  <text x="72" y="758" class="mono">sample_window_frames</text>
+  <text x="72" y="778" class="s">6 frames from [start,end)</text>
+  <text x="72" y="798" class="s">OpenCV -&gt; PIL</text>
+  <text x="72" y="822" class="tiny">Unload PE, free GPU before VLM</text>
+
+  <rect x="360" y="714" width="360" height="156" rx="10" fill="#2a1f18" stroke="#8a5a35"/>
+  <text x="376" y="738" class="t">vlm_confirm.py</text>
+  <text x="376" y="758" class="mono">Qwen/Qwen3-VL-2B-Instruct</text>
+  <text x="376" y="778" class="s">multi-image chat + event definition</text>
+  <text x="376" y="798" class="s">JSON: present, confidence, rationale</text>
+  <text x="376" y="822" class="tiny">transformers Qwen3VLForConditionalGeneration</text>
+
+  <rect x="744" y="714" width="300" height="156" rx="10" fill="#1a3d2a" stroke="#3d7a55"/>
+  <text x="760" y="738" class="t">Decision</text>
+  <text x="760" y="760" class="mono">confirmed =</text>
+  <text x="760" y="780" class="mono">  present AND</text>
+  <text x="760" y="800" class="mono">  confidence &gt;= 0.55</text>
+  <text x="760" y="824" class="s">else REJECTED (false positive)</text>
+
+  <rect x="1068" y="714" width="464" height="156" rx="10" fill="#1b2a40" stroke="#456189"/>
+  <text x="1084" y="738" class="t">Outputs</text>
+  <text x="1084" y="760" class="mono">data/reports/*_confirm.json</text>
+  <text x="1084" y="780" class="mono">clips/cascade_*/ok_* or fp_*</text>
+  <text x="1084" y="800" class="s">pe_score + vlm_conf + rationale</text>
+  <text x="1084" y="824" class="s">cli: videosearch confirm fight</text>
+
+  <line x1="336" y1="792" x2="360" y2="792" stroke="#9aabb8" stroke-width="1.5" marker-end="url(#arrG)"/>
+  <line x1="720" y1="792" x2="744" y2="792" stroke="#9aabb8" stroke-width="1.5" marker-end="url(#arrG)"/>
+  <line x1="1044" y1="792" x2="1068" y2="792" stroke="#9aabb8" stroke-width="1.5" marker-end="url(#arrG)"/>
+
+  <!-- vertical flow arrow from ranking candidates to VLM -->
+  <line x1="834" y1="630" x2="834" y2="714" stroke="#5a9e72" stroke-width="2" marker-end="url(#arrG)"/>
+
+  <!-- ========== ROW 5: FILES ========== -->
+  <rect x="40" y="910" width="1520" height="160" rx="14" fill="#0f1520" stroke="#2d3f58"/>
+  <text x="56" y="936" class="h">5. COMPONENT MAP</text>
+  <text x="56" y="962" class="mono">cli.py</text>
+  <text x="200" y="962" class="s">index / search / confirm</text>
+  <text x="420" y="962" class="mono">chunker.py</text>
+  <text x="560" y="962" class="s">time windows + frames</text>
+  <text x="780" y="962" class="mono">pe_model.py</text>
+  <text x="930" y="962" class="s">PE-Core wrap</text>
+  <text x="1120" y="962" class="mono">indexer.py</text>
+  <text x="1260" y="962" class="s">build embeddings store</text>
+
+  <text x="56" y="990" class="mono">search.py</text>
+  <text x="200" y="990" class="s">cosine top-k NLQ</text>
+  <text x="420" y="990" class="mono">events.py</text>
+  <text x="560" y="990" class="s">event prompt catalog</text>
+  <text x="780" y="990" class="mono">cascade.py</text>
+  <text x="930" y="990" class="s">PE then VLM orchestration</text>
+  <text x="1120" y="990" class="mono">vlm_confirm.py</text>
+  <text x="1300" y="990" class="s">Qwen3-VL verdict</text>
+
+  <text x="56" y="1018" class="mono">frames.py</text>
+  <text x="200" y="1018" class="s">window frame sample</text>
+  <text x="420" y="1018" class="mono">vendor/ + .pt</text>
+  <text x="600" y="1018" class="s">architecture + weights</text>
+  <text x="860" y="1018" class="mono">Makefile</text>
+  <text x="980" y="1018" class="s">setup / index / search / confirm</text>
+
+  <text x="56" y="1046" class="tiny">Pipeline: videos -&gt; chunker -&gt; PE vision embed -&gt; index store -&gt; PE text rank -&gt; VLM confirm -&gt; report + clips</text>
+</svg>

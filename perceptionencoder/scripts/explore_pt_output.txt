@@ -1,0 +1,642 @@
+file: /home/satishv/study/vision/perceptionencoder/.hf_home/hub/models--facebook--PE-Core-L14-336/blobs/0cdab5b338cbaa1e7a5dcd1b2fb4c9f4d5df1abd289564658edbab64a650e7e8
+size on disk: 2.5 GB (2,684,747,432 bytes)
+
+torch.load type: dict
+top-level keys (601): ['ln_final.bias', 'ln_final.weight', 'logit_scale', 'positional_embedding', 'text_projection', 'token_embedding.weight', 'transformer.resblocks.0.attn.in_proj_bias', 'transformer.resblocks.0.attn.in_proj_weight', 'transformer.resblocks.0.attn.out_proj.bias', 'transformer.resblocks.0.attn.out_proj.weight', 'transformer.resblocks.0.ln_1.bias', 'transformer.resblocks.0.ln_1.weight', 'transformer.resblocks.0.ln_2.bias', 'transformer.resblocks.0.ln_2.weight', 'transformer.resblocks.0.mlp.c_fc.bias', 'transformer.resblocks.0.mlp.c_fc.weight', 'transformer.resblocks.0.mlp.c_proj.bias', 'transformer.resblocks.0.mlp.c_proj.weight', 'transformer.resblocks.1.attn.in_proj_bias', 'transformer.resblocks.1.attn.in_proj_weight'] ...
+state_dict: top-level dict of tensors (state_dict)
+parameter tensors: 601
+
+total parameters: 671,137,793 (0.671 B)
+total tensor bytes (in-memory): 2.5 GB
+dtypes: {'torch.float32': 601}
+
+by top-level prefix:
+  visual                          tensors= 307  params=   317,151,232  ( 47.3%)
+  transformer                     tensors= 288  params=   302,309,376  ( 45.0%)
+  token_embedding                 tensors=   1  params=    50,593,792  (  7.5%)
+  text_projection                 tensors=   1  params=     1,048,576  (  0.2%)
+  positional_embedding            tensors=   1  params=        32,768  (  0.0%)
+  ln_final                        tensors=   2  params=         2,048  (  0.0%)
+  logit_scale                     tensors=   1  params=             1  (  0.0%)
+
+by two-level prefix (top 25 by params):
+  transformer.resblocks                     tensors= 288  params=   302,309,376
+  visual.transformer                        tensors= 288  params=   302,309,376
+  token_embedding.weight                    tensors=   1  params=    50,593,792
+  visual.attn_pool                          tensors=  11  params=    12,595,200
+  text_projection                           tensors=   1  params=     1,048,576
+  visual.proj                               tensors=   1  params=     1,048,576
+  visual.conv1                              tensors=   1  params=       602,112
+  visual.positional_embedding               tensors=   1  params=       590,848
+  positional_embedding                      tensors=   1  params=        32,768
+  visual.ln_post                            tensors=   2  params=         2,048
+  visual.ln_pre                             tensors=   2  params=         2,048
+  ln_final.bias                             tensors=   1  params=         1,024
+  ln_final.weight                           tensors=   1  params=         1,024
+  visual.class_embedding                    tensors=   1  params=         1,024
+  logit_scale                               tensors=   1  params=             1
+
+tensors (all):
+  name                                                                   shape                        dtype                params
+  --------------------------------------------------------------------------------------------------------------------------------
+  ln_final.bias                                                          (1024,)                      torch.float32         1,024
+  ln_final.weight                                                        (1024,)                      torch.float32         1,024
+  logit_scale                                                            ()                           torch.float32             1
+  positional_embedding                                                   (32, 1024)                   torch.float32        32,768
+  text_projection                                                        (1024, 1024)                 torch.float32     1,048,576
+  token_embedding.weight                                                 (49408, 1024)                torch.float32    50,593,792
+  transformer.resblocks.0.attn.in_proj_bias                              (3072,)                      torch.float32         3,072
+  transformer.resblocks.0.attn.in_proj_weight                            (3072, 1024)                 torch.float32     3,145,728
+  transformer.resblocks.0.attn.out_proj.bias                             (1024,)                      torch.float32         1,024
+  transformer.resblocks.0.attn.out_proj.weight                           (1024, 1024)                 torch.float32     1,048,576
+  transformer.resblocks.0.ln_1.bias                                      (1024,)                      torch.float32         1,024
+  transformer.resblocks.0.ln_1.weight                                    (1024,)                      torch.float32         1,024
+  transformer.resblocks.0.ln_2.bias                                      (1024,)                      torch.float32         1,024
+  transformer.resblocks.0.ln_2.weight                                    (1024,)                      torch.float32         1,024
+  transformer.resblocks.0.mlp.c_fc.bias                                  (4096,)                      torch.float32         4,096
+  transformer.resblocks.0.mlp.c_fc.weight                                (4096, 1024)                 torch.float32     4,194,304
+  transformer.resblocks.0.mlp.c_proj.bias                                (1024,)                      torch.float32         1,024
+  transformer.resblocks.0.mlp.c_proj.weight                              (1024, 4096)                 torch.float32     4,194,304
+  transformer.resblocks.1.attn.in_proj_bias                              (3072,)                      torch.float32         3,072
+  transformer.resblocks.1.attn.in_proj_weight                            (3072, 1024)                 torch.float32     3,145,728
+  transformer.resblocks.1.attn.out_proj.bias                             (1024,)                      torch.float32         1,024
+  transformer.resblocks.1.attn.out_proj.weight                           (1024, 1024)                 torch.float32     1,048,576
+  transformer.resblocks.1.ln_1.bias                                      (1024,)                      torch.float32         1,024
+  transformer.resblocks.1.ln_1.weight                                    (1024,)                      torch.float32         1,024
+  transformer.resblocks.1.ln_2.bias                                      (1024,)                      torch.float32         1,024
+  transformer.resblocks.1.ln_2.weight                                    (1024,)                      torch.float32         1,024
+  transformer.resblocks.1.mlp.c_fc.bias                                  (4096,)                      torch.float32         4,096
+  transformer.resblocks.1.mlp.c_fc.weight                                (4096, 1024)                 torch.float32     4,194,304
+  transformer.resblocks.1.mlp.c_proj.bias                                (1024,)                      torch.float32         1,024
+  transformer.resblocks.1.mlp.c_proj.weight                              (1024, 4096)                 torch.float32     4,194,304
+  transformer.resblocks.10.attn.in_proj_bias                             (3072,)                      torch.float32         3,072
+  transformer.resblocks.10.attn.in_proj_weight                           (3072, 1024)                 torch.float32     3,145,728
+  transformer.resblocks.10.attn.out_proj.bias                            (1024,)                      torch.float32         1,024
+  transformer.resblocks.10.attn.out_proj.weight                          (1024, 1024)                 torch.float32     1,048,576
+  transformer.resblocks.10.ln_1.bias                                     (1024,)                      torch.float32         1,024
+  transformer.resblocks.10.ln_1.weight                                   (1024,)                      torch.float32         1,024
+  transformer.resblocks.10.ln_2.bias                                     (1024,)                      torch.float32         1,024
+  transformer.resblocks.10.ln_2.weight                                   (1024,)                      torch.float32         1,024
+  transformer.resblocks.10.mlp.c_fc.bias                                 (4096,)                      torch.float32         4,096
+  transformer.resblocks.10.mlp.c_fc.weight                               (4096, 1024)                 torch.float32     4,194,304
+  transformer.resblocks.10.mlp.c_proj.bias                               (1024,)                      torch.float32         1,024
+  transformer.resblocks.10.mlp.c_proj.weight                             (1024, 4096)                 torch.float32     4,194,304
+  transformer.resblocks.11.attn.in_proj_bias                             (3072,)                      torch.float32         3,072
+  transformer.resblocks.11.attn.in_proj_weight                           (3072, 1024)                 torch.float32     3,145,728
+  transformer.resblocks.11.attn.out_proj.bias                            (1024,)                      torch.float32         1,024
+  transformer.resblocks.11.attn.out_proj.weight                          (1024, 1024)                 torch.float32     1,048,576
+  transformer.resblocks.11.ln_1.bias                                     (1024,)                      torch.float32         1,024
+  transformer.resblocks.11.ln_1.weight                                   (1024,)                      torch.float32         1,024
+  transformer.resblocks.11.ln_2.bias                                     (1024,)                      torch.float32         1,024
+  transformer.resblocks.11.ln_2.weight                                   (1024,)                      torch.float32         1,024
+  transformer.resblocks.11.mlp.c_fc.bias                                 (4096,)                      torch.float32         4,096
+  transformer.resblocks.11.mlp.c_fc.weight                               (4096, 1024)                 torch.float32     4,194,304
+  transformer.resblocks.11.mlp.c_proj.bias                               (1024,)                      torch.float32         1,024
+  transformer.resblocks.11.mlp.c_proj.weight                             (1024, 4096)                 torch.float32     4,194,304
+  transformer.resblocks.12.attn.in_proj_bias                             (3072,)                      torch.float32         3,072
+  transformer.resblocks.12.attn.in_proj_weight                           (3072, 1024)                 torch.float32     3,145,728
+  transformer.resblocks.12.attn.out_proj.bias                            (1024,)                      torch.float32         1,024
+  transformer.resblocks.12.attn.out_proj.weight                          (1024, 1024)                 torch.float32     1,048,576
+  transformer.resblocks.12.ln_1.bias                                     (1024,)                      torch.float32         1,024
+  transformer.resblocks.12.ln_1.weight                                   (1024,)                      torch.float32         1,024
+  transformer.resblocks.12.ln_2.bias                                     (1024,)                      torch.float32         1,024
+  transformer.resblocks.12.ln_2.weight                                   (1024,)                      torch.float32         1,024
+  transformer.resblocks.12.mlp.c_fc.bias                                 (4096,)                      torch.float32         4,096
+  transformer.resblocks.12.mlp.c_fc.weight                               (4096, 1024)                 torch.float32     4,194,304
+  transformer.resblocks.12.mlp.c_proj.bias                               (1024,)                      torch.float32         1,024
+  transformer.resblocks.12.mlp.c_proj.weight                             (1024, 4096)                 torch.float32     4,194,304
+  transformer.resblocks.13.attn.in_proj_bias                             (3072,)                      torch.float32         3,072
+  transformer.resblocks.13.attn.in_proj_weight                           (3072, 1024)                 torch.float32     3,145,728
+  transformer.resblocks.13.attn.out_proj.bias                            (1024,)                      torch.float32         1,024
+  transformer.resblocks.13.attn.out_proj.weight                          (1024, 1024)                 torch.float32     1,048,576
+  transformer.resblocks.13.ln_1.bias                                     (1024,)                      torch.float32         1,024
+  transformer.resblocks.13.ln_1.weight                                   (1024,)                      torch.float32         1,024
+  transformer.resblocks.13.ln_2.bias                                     (1024,)                      torch.float32         1,024
+  transformer.resblocks.13.ln_2.weight                                   (1024,)                      torch.float32         1,024
+  transformer.resblocks.13.mlp.c_fc.bias                                 (4096,)                      torch.float32         4,096
+  transformer.resblocks.13.mlp.c_fc.weight                               (4096, 1024)                 torch.float32     4,194,304
+  transformer.resblocks.13.mlp.c_proj.bias                               (1024,)                      torch.float32         1,024
+  transformer.resblocks.13.mlp.c_proj.weight                             (1024, 4096)                 torch.float32     4,194,304
+  transformer.resblocks.14.attn.in_proj_bias                             (3072,)                      torch.float32         3,072
+  transformer.resblocks.14.attn.in_proj_weight                           (3072, 1024)                 torch.float32     3,145,728
+  transformer.resblocks.14.attn.out_proj.bias                            (1024,)                      torch.float32         1,024
+  transformer.resblocks.14.attn.out_proj.weight                          (1024, 1024)                 torch.float32     1,048,576
+  transformer.resblocks.14.ln_1.bias                                     (1024,)                      torch.float32         1,024
+  transformer.resblocks.14.ln_1.weight                                   (1024,)                      torch.float32         1,024
+  transformer.resblocks.14.ln_2.bias                                     (1024,)                      torch.float32         1,024
+  transformer.resblocks.14.ln_2.weight                                   (1024,)                      torch.float32         1,024
+  transformer.resblocks.14.mlp.c_fc.bias                                 (4096,)                      torch.float32         4,096
+  transformer.resblocks.14.mlp.c_fc.weight                               (4096, 1024)                 torch.float32     4,194,304
+  transformer.resblocks.14.mlp.c_proj.bias                               (1024,)                      torch.float32         1,024
+  transformer.resblocks.14.mlp.c_proj.weight                             (1024, 4096)                 torch.float32     4,194,304
+  transformer.resblocks.15.attn.in_proj_bias                             (3072,)                      torch.float32         3,072
+  transformer.resblocks.15.attn.in_proj_weight                           (3072, 1024)                 torch.float32     3,145,728
+  transformer.resblocks.15.attn.out_proj.bias                            (1024,)                      torch.float32         1,024
+  transformer.resblocks.15.attn.out_proj.weight                          (1024, 1024)                 torch.float32     1,048,576
+  transformer.resblocks.15.ln_1.bias                                     (1024,)                      torch.float32         1,024
+  transformer.resblocks.15.ln_1.weight                                   (1024,)                      torch.float32         1,024
+  transformer.resblocks.15.ln_2.bias                                     (1024,)                      torch.float32         1,024
+  transformer.resblocks.15.ln_2.weight                                   (1024,)                      torch.float32         1,024
+  transformer.resblocks.15.mlp.c_fc.bias                                 (4096,)                      torch.float32         4,096
+  transformer.resblocks.15.mlp.c_fc.weight                               (4096, 1024)                 torch.float32     4,194,304
+  transformer.resblocks.15.mlp.c_proj.bias                               (1024,)                      torch.float32         1,024
+  transformer.resblocks.15.mlp.c_proj.weight                             (1024, 4096)                 torch.float32     4,194,304
+  transformer.resblocks.16.attn.in_proj_bias                             (3072,)                      torch.float32         3,072
+  transformer.resblocks.16.attn.in_proj_weight                           (3072, 1024)                 torch.float32     3,145,728
+  transformer.resblocks.16.attn.out_proj.bias                            (1024,)                      torch.float32         1,024
+  transformer.resblocks.16.attn.out_proj.weight                          (1024, 1024)                 torch.float32     1,048,576
+  transformer.resblocks.16.ln_1.bias                                     (1024,)                      torch.float32         1,024
+  transformer.resblocks.16.ln_1.weight                                   (1024,)                      torch.float32         1,024
+  transformer.resblocks.16.ln_2.bias                                     (1024,)                      torch.float32         1,024
+  transformer.resblocks.16.ln_2.weight                                   (1024,)                      torch.float32         1,024
+  transformer.resblocks.16.mlp.c_fc.bias                                 (4096,)                      torch.float32         4,096
+  transformer.resblocks.16.mlp.c_fc.weight                               (4096, 1024)                 torch.float32     4,194,304
+  transformer.resblocks.16.mlp.c_proj.bias                               (1024,)                      torch.float32         1,024
+  transformer.resblocks.16.mlp.c_proj.weight                             (1024, 4096)                 torch.float32     4,194,304
+  transformer.resblocks.17.attn.in_proj_bias                             (3072,)                      torch.float32         3,072
+  transformer.resblocks.17.attn.in_proj_weight                           (3072, 1024)                 torch.float32     3,145,728
+  transformer.resblocks.17.attn.out_proj.bias                            (1024,)                      torch.float32         1,024
+  transformer.resblocks.17.attn.out_proj.weight                          (1024, 1024)                 torch.float32     1,048,576
+  transformer.resblocks.17.ln_1.bias                                     (1024,)                      torch.float32         1,024
+  transformer.resblocks.17.ln_1.weight                                   (1024,)                      torch.float32         1,024
+  transformer.resblocks.17.ln_2.bias                                     (1024,)                      torch.float32         1,024
+  transformer.resblocks.17.ln_2.weight                                   (1024,)                      torch.float32         1,024
+  transformer.resblocks.17.mlp.c_fc.bias                                 (4096,)                      torch.float32         4,096
+  transformer.resblocks.17.mlp.c_fc.weight                               (4096, 1024)                 torch.float32     4,194,304
+  transformer.resblocks.17.mlp.c_proj.bias                               (1024,)                      torch.float32         1,024
+  transformer.resblocks.17.mlp.c_proj.weight                             (1024, 4096)                 torch.float32     4,194,304
+  transformer.resblocks.18.attn.in_proj_bias                             (3072,)                      torch.float32         3,072
+  transformer.resblocks.18.attn.in_proj_weight                           (3072, 1024)                 torch.float32     3,145,728
+  transformer.resblocks.18.attn.out_proj.bias                            (1024,)                      torch.float32         1,024
+  transformer.resblocks.18.attn.out_proj.weight                          (1024, 1024)                 torch.float32     1,048,576
+  transformer.resblocks.18.ln_1.bias                                     (1024,)                      torch.float32         1,024
+  transformer.resblocks.18.ln_1.weight                                   (1024,)                      torch.float32         1,024
+  transformer.resblocks.18.ln_2.bias                                     (1024,)                      torch.float32         1,024
+  transformer.resblocks.18.ln_2.weight                                   (1024,)                      torch.float32         1,024
+  transformer.resblocks.18.mlp.c_fc.bias                                 (4096,)                      torch.float32         4,096
+  transformer.resblocks.18.mlp.c_fc.weight                               (4096, 1024)                 torch.float32     4,194,304
+  transformer.resblocks.18.mlp.c_proj.bias                               (1024,)                      torch.float32         1,024
+  transformer.resblocks.18.mlp.c_proj.weight                             (1024, 4096)                 torch.float32     4,194,304
+  transformer.resblocks.19.attn.in_proj_bias                             (3072,)                      torch.float32         3,072
+  transformer.resblocks.19.attn.in_proj_weight                           (3072, 1024)                 torch.float32     3,145,728
+  transformer.resblocks.19.attn.out_proj.bias                            (1024,)                      torch.float32         1,024
+  transformer.resblocks.19.attn.out_proj.weight                          (1024, 1024)                 torch.float32     1,048,576
+  transformer.resblocks.19.ln_1.bias                                     (1024,)                      torch.float32         1,024
+  transformer.resblocks.19.ln_1.weight                                   (1024,)                      torch.float32         1,024
+  transformer.resblocks.19.ln_2.bias                                     (1024,)                      torch.float32         1,024
+  transformer.resblocks.19.ln_2.weight                                   (1024,)                      torch.float32         1,024
+  transformer.resblocks.19.mlp.c_fc.bias                                 (4096,)                      torch.float32         4,096
+  transformer.resblocks.19.mlp.c_fc.weight                               (4096, 1024)                 torch.float32     4,194,304
+  transformer.resblocks.19.mlp.c_proj.bias                               (1024,)                      torch.float32         1,024
+  transformer.resblocks.19.mlp.c_proj.weight                             (1024, 4096)                 torch.float32     4,194,304
+  transformer.resblocks.2.attn.in_proj_bias                              (3072,)                      torch.float32         3,072
+  transformer.resblocks.2.attn.in_proj_weight                            (3072, 1024)                 torch.float32     3,145,728
+  transformer.resblocks.2.attn.out_proj.bias                             (1024,)                      torch.float32         1,024
+  transformer.resblocks.2.attn.out_proj.weight                           (1024, 1024)                 torch.float32     1,048,576
+  transformer.resblocks.2.ln_1.bias                                      (1024,)                      torch.float32         1,024
+  transformer.resblocks.2.ln_1.weight                                    (1024,)                      torch.float32         1,024
+  transformer.resblocks.2.ln_2.bias                                      (1024,)                      torch.float32         1,024
+  transformer.resblocks.2.ln_2.weight                                    (1024,)                      torch.float32         1,024
+  transformer.resblocks.2.mlp.c_fc.bias                                  (4096,)                      torch.float32         4,096
+  transformer.resblocks.2.mlp.c_fc.weight                                (4096, 1024)                 torch.float32     4,194,304
+  transformer.resblocks.2.mlp.c_proj.bias                                (1024,)                      torch.float32         1,024
+  transformer.resblocks.2.mlp.c_proj.weight                              (1024, 4096)                 torch.float32     4,194,304
+  transformer.resblocks.20.attn.in_proj_bias                             (3072,)                      torch.float32         3,072
+  transformer.resblocks.20.attn.in_proj_weight                           (3072, 1024)                 torch.float32     3,145,728
+  transformer.resblocks.20.attn.out_proj.bias                            (1024,)                      torch.float32         1,024
+  transformer.resblocks.20.attn.out_proj.weight                          (1024, 1024)                 torch.float32     1,048,576
+  transformer.resblocks.20.ln_1.bias                                     (1024,)                      torch.float32         1,024
+  transformer.resblocks.20.ln_1.weight                                   (1024,)                      torch.float32         1,024
+  transformer.resblocks.20.ln_2.bias                                     (1024,)                      torch.float32         1,024
+  transformer.resblocks.20.ln_2.weight                                   (1024,)                      torch.float32         1,024
+  transformer.resblocks.20.mlp.c_fc.bias                                 (4096,)                      torch.float32         4,096
+  transformer.resblocks.20.mlp.c_fc.weight                               (4096, 1024)                 torch.float32     4,194,304
+  transformer.resblocks.20.mlp.c_proj.bias                               (1024,)                      torch.float32         1,024
+  transformer.resblocks.20.mlp.c_proj.weight                             (1024, 4096)                 torch.float32     4,194,304
+  transformer.resblocks.21.attn.in_proj_bias                             (3072,)                      torch.float32         3,072
+  transformer.resblocks.21.attn.in_proj_weight                           (3072, 1024)                 torch.float32     3,145,728
+  transformer.resblocks.21.attn.out_proj.bias                            (1024,)                      torch.float32         1,024
+  transformer.resblocks.21.attn.out_proj.weight                          (1024, 1024)                 torch.float32     1,048,576
+  transformer.resblocks.21.ln_1.bias                                     (1024,)                      torch.float32         1,024
+  transformer.resblocks.21.ln_1.weight                                   (1024,)                      torch.float32         1,024
+  transformer.resblocks.21.ln_2.bias                                     (1024,)                      torch.float32         1,024
+  transformer.resblocks.21.ln_2.weight                                   (1024,)                      torch.float32         1,024
+  transformer.resblocks.21.mlp.c_fc.bias                                 (4096,)                      torch.float32         4,096
+  transformer.resblocks.21.mlp.c_fc.weight                               (4096, 1024)                 torch.float32     4,194,304
+  transformer.resblocks.21.mlp.c_proj.bias                               (1024,)                      torch.float32         1,024
+  transformer.resblocks.21.mlp.c_proj.weight                             (1024, 4096)                 torch.float32     4,194,304
+  transformer.resblocks.22.attn.in_proj_bias                             (3072,)                      torch.float32         3,072
+  transformer.resblocks.22.attn.in_proj_weight                           (3072, 1024)                 torch.float32     3,145,728
+  transformer.resblocks.22.attn.out_proj.bias                            (1024,)                      torch.float32         1,024
+  transformer.resblocks.22.attn.out_proj.weight                          (1024, 1024)                 torch.float32     1,048,576
+  transformer.resblocks.22.ln_1.bias                                     (1024,)                      torch.float32         1,024
+  transformer.resblocks.22.ln_1.weight                                   (1024,)                      torch.float32         1,024
+  transformer.resblocks.22.ln_2.bias                                     (1024,)                      torch.float32         1,024
+  transformer.resblocks.22.ln_2.weight                                   (1024,)                      torch.float32         1,024
+  transformer.resblocks.22.mlp.c_fc.bias                                 (4096,)                      torch.float32         4,096
+  transformer.resblocks.22.mlp.c_fc.weight                               (4096, 1024)                 torch.float32     4,194,304
+  transformer.resblocks.22.mlp.c_proj.bias                               (1024,)                      torch.float32         1,024
+  transformer.resblocks.22.mlp.c_proj.weight                             (1024, 4096)                 torch.float32     4,194,304
+  transformer.resblocks.23.attn.in_proj_bias                             (3072,)                      torch.float32         3,072
+  transformer.resblocks.23.attn.in_proj_weight                           (3072, 1024)                 torch.float32     3,145,728
+  transformer.resblocks.23.attn.out_proj.bias                            (1024,)                      torch.float32         1,024
+  transformer.resblocks.23.attn.out_proj.weight                          (1024, 1024)                 torch.float32     1,048,576
+  transformer.resblocks.23.ln_1.bias                                     (1024,)                      torch.float32         1,024
+  transformer.resblocks.23.ln_1.weight                                   (1024,)                      torch.float32         1,024
+  transformer.resblocks.23.ln_2.bias                                     (1024,)                      torch.float32         1,024
+  transformer.resblocks.23.ln_2.weight                                   (1024,)                      torch.float32         1,024
+  transformer.resblocks.23.mlp.c_fc.bias                                 (4096,)                      torch.float32         4,096
+  transformer.resblocks.23.mlp.c_fc.weight                               (4096, 1024)                 torch.float32     4,194,304
+  transformer.resblocks.23.mlp.c_proj.bias                               (1024,)                      torch.float32         1,024
+  transformer.resblocks.23.mlp.c_proj.weight                             (1024, 4096)                 torch.float32     4,194,304
+  transformer.resblocks.3.attn.in_proj_bias                              (3072,)                      torch.float32         3,072
+  transformer.resblocks.3.attn.in_proj_weight                            (3072, 1024)                 torch.float32     3,145,728
+  transformer.resblocks.3.attn.out_proj.bias                             (1024,)                      torch.float32         1,024
+  transformer.resblocks.3.attn.out_proj.weight                           (1024, 1024)                 torch.float32     1,048,576
+  transformer.resblocks.3.ln_1.bias                                      (1024,)                      torch.float32         1,024
+  transformer.resblocks.3.ln_1.weight                                    (1024,)                      torch.float32         1,024
+  transformer.resblocks.3.ln_2.bias                                      (1024,)                      torch.float32         1,024
+  transformer.resblocks.3.ln_2.weight                                    (1024,)                      torch.float32         1,024
+  transformer.resblocks.3.mlp.c_fc.bias                                  (4096,)                      torch.float32         4,096
+  transformer.resblocks.3.mlp.c_fc.weight                                (4096, 1024)                 torch.float32     4,194,304
+  transformer.resblocks.3.mlp.c_proj.bias                                (1024,)                      torch.float32         1,024
+  transformer.resblocks.3.mlp.c_proj.weight                              (1024, 4096)                 torch.float32     4,194,304
+  transformer.resblocks.4.attn.in_proj_bias                              (3072,)                      torch.float32         3,072
+  transformer.resblocks.4.attn.in_proj_weight                            (3072, 1024)                 torch.float32     3,145,728
+  transformer.resblocks.4.attn.out_proj.bias                             (1024,)                      torch.float32         1,024
+  transformer.resblocks.4.attn.out_proj.weight                           (1024, 1024)                 torch.float32     1,048,576
+  transformer.resblocks.4.ln_1.bias                                      (1024,)                      torch.float32         1,024
+  transformer.resblocks.4.ln_1.weight                                    (1024,)                      torch.float32         1,024
+  transformer.resblocks.4.ln_2.bias                                      (1024,)                      torch.float32         1,024
+  transformer.resblocks.4.ln_2.weight                                    (1024,)                      torch.float32         1,024
+  transformer.resblocks.4.mlp.c_fc.bias                                  (4096,)                      torch.float32         4,096
+  transformer.resblocks.4.mlp.c_fc.weight                                (4096, 1024)                 torch.float32     4,194,304
+  transformer.resblocks.4.mlp.c_proj.bias                                (1024,)                      torch.float32         1,024
+  transformer.resblocks.4.mlp.c_proj.weight                              (1024, 4096)                 torch.float32     4,194,304
+  transformer.resblocks.5.attn.in_proj_bias                              (3072,)                      torch.float32         3,072
+  transformer.resblocks.5.attn.in_proj_weight                            (3072, 1024)                 torch.float32     3,145,728
+  transformer.resblocks.5.attn.out_proj.bias                             (1024,)                      torch.float32         1,024
+  transformer.resblocks.5.attn.out_proj.weight                           (1024, 1024)                 torch.float32     1,048,576
+  transformer.resblocks.5.ln_1.bias                                      (1024,)                      torch.float32         1,024
+  transformer.resblocks.5.ln_1.weight                                    (1024,)                      torch.float32         1,024
+  transformer.resblocks.5.ln_2.bias                                      (1024,)                      torch.float32         1,024
+  transformer.resblocks.5.ln_2.weight                                    (1024,)                      torch.float32         1,024
+  transformer.resblocks.5.mlp.c_fc.bias                                  (4096,)                      torch.float32         4,096
+  transformer.resblocks.5.mlp.c_fc.weight                                (4096, 1024)                 torch.float32     4,194,304
+  transformer.resblocks.5.mlp.c_proj.bias                                (1024,)                      torch.float32         1,024
+  transformer.resblocks.5.mlp.c_proj.weight                              (1024, 4096)                 torch.float32     4,194,304
+  transformer.resblocks.6.attn.in_proj_bias                              (3072,)                      torch.float32         3,072
+  transformer.resblocks.6.attn.in_proj_weight                            (3072, 1024)                 torch.float32     3,145,728
+  transformer.resblocks.6.attn.out_proj.bias                             (1024,)                      torch.float32         1,024
+  transformer.resblocks.6.attn.out_proj.weight                           (1024, 1024)                 torch.float32     1,048,576
+  transformer.resblocks.6.ln_1.bias                                      (1024,)                      torch.float32         1,024
+  transformer.resblocks.6.ln_1.weight                                    (1024,)                      torch.float32         1,024
+  transformer.resblocks.6.ln_2.bias                                      (1024,)                      torch.float32         1,024
+  transformer.resblocks.6.ln_2.weight                                    (1024,)                      torch.float32         1,024
+  transformer.resblocks.6.mlp.c_fc.bias                                  (4096,)                      torch.float32         4,096
+  transformer.resblocks.6.mlp.c_fc.weight                                (4096, 1024)                 torch.float32     4,194,304
+  transformer.resblocks.6.mlp.c_proj.bias                                (1024,)                      torch.float32         1,024
+  transformer.resblocks.6.mlp.c_proj.weight                              (1024, 4096)                 torch.float32     4,194,304
+  transformer.resblocks.7.attn.in_proj_bias                              (3072,)                      torch.float32         3,072
+  transformer.resblocks.7.attn.in_proj_weight                            (3072, 1024)                 torch.float32     3,145,728
+  transformer.resblocks.7.attn.out_proj.bias                             (1024,)                      torch.float32         1,024
+  transformer.resblocks.7.attn.out_proj.weight                           (1024, 1024)                 torch.float32     1,048,576
+  transformer.resblocks.7.ln_1.bias                                      (1024,)                      torch.float32         1,024
+  transformer.resblocks.7.ln_1.weight                                    (1024,)                      torch.float32         1,024
+  transformer.resblocks.7.ln_2.bias                                      (1024,)                      torch.float32         1,024
+  transformer.resblocks.7.ln_2.weight                                    (1024,)                      torch.float32         1,024
+  transformer.resblocks.7.mlp.c_fc.bias                                  (4096,)                      torch.float32         4,096
+  transformer.resblocks.7.mlp.c_fc.weight                                (4096, 1024)                 torch.float32     4,194,304
+  transformer.resblocks.7.mlp.c_proj.bias                                (1024,)                      torch.float32         1,024
+  transformer.resblocks.7.mlp.c_proj.weight                              (1024, 4096)                 torch.float32     4,194,304
+  transformer.resblocks.8.attn.in_proj_bias                              (3072,)                      torch.float32         3,072
+  transformer.resblocks.8.attn.in_proj_weight                            (3072, 1024)                 torch.float32     3,145,728
+  transformer.resblocks.8.attn.out_proj.bias                             (1024,)                      torch.float32         1,024
+  transformer.resblocks.8.attn.out_proj.weight                           (1024, 1024)                 torch.float32     1,048,576
+  transformer.resblocks.8.ln_1.bias                                      (1024,)                      torch.float32         1,024
+  transformer.resblocks.8.ln_1.weight                                    (1024,)                      torch.float32         1,024
+  transformer.resblocks.8.ln_2.bias                                      (1024,)                      torch.float32         1,024
+  transformer.resblocks.8.ln_2.weight                                    (1024,)                      torch.float32         1,024
+  transformer.resblocks.8.mlp.c_fc.bias                                  (4096,)                      torch.float32         4,096
+  transformer.resblocks.8.mlp.c_fc.weight                                (4096, 1024)                 torch.float32     4,194,304
+  transformer.resblocks.8.mlp.c_proj.bias                                (1024,)                      torch.float32         1,024
+  transformer.resblocks.8.mlp.c_proj.weight                              (1024, 4096)                 torch.float32     4,194,304
+  transformer.resblocks.9.attn.in_proj_bias                              (3072,)                      torch.float32         3,072
+  transformer.resblocks.9.attn.in_proj_weight                            (3072, 1024)                 torch.float32     3,145,728
+  transformer.resblocks.9.attn.out_proj.bias                             (1024,)                      torch.float32         1,024
+  transformer.resblocks.9.attn.out_proj.weight                           (1024, 1024)                 torch.float32     1,048,576
+  transformer.resblocks.9.ln_1.bias                                      (1024,)                      torch.float32         1,024
+  transformer.resblocks.9.ln_1.weight                                    (1024,)                      torch.float32         1,024
+  transformer.resblocks.9.ln_2.bias                                      (1024,)                      torch.float32         1,024
+  transformer.resblocks.9.ln_2.weight                                    (1024,)                      torch.float32         1,024
+  transformer.resblocks.9.mlp.c_fc.bias                                  (4096,)                      torch.float32         4,096
+  transformer.resblocks.9.mlp.c_fc.weight                                (4096, 1024)                 torch.float32     4,194,304
+  transformer.resblocks.9.mlp.c_proj.bias                                (1024,)                      torch.float32         1,024
+  transformer.resblocks.9.mlp.c_proj.weight                              (1024, 4096)                 torch.float32     4,194,304
+  visual.attn_pool.attn.in_proj_bias                                     (3072,)                      torch.float32         3,072
+  visual.attn_pool.attn.in_proj_weight                                   (3072, 1024)                 torch.float32     3,145,728
+  visual.attn_pool.attn.out_proj.bias                                    (1024,)                      torch.float32         1,024
+  visual.attn_pool.attn.out_proj.weight                                  (1024, 1024)                 torch.float32     1,048,576
+  visual.attn_pool.layernorm.bias                                        (1024,)                      torch.float32         1,024
+  visual.attn_pool.layernorm.weight                                      (1024,)                      torch.float32         1,024
+  visual.attn_pool.mlp.c_fc.bias                                         (4096,)                      torch.float32         4,096
+  visual.attn_pool.mlp.c_fc.weight                                       (4096, 1024)                 torch.float32     4,194,304
+  visual.attn_pool.mlp.c_proj.bias                                       (1024,)                      torch.float32         1,024
+  visual.attn_pool.mlp.c_proj.weight                                     (1024, 4096)                 torch.float32     4,194,304
+  visual.attn_pool.probe                                                 (1, 1, 1024)                 torch.float32         1,024
+  visual.class_embedding                                                 (1024,)                      torch.float32         1,024
+  visual.conv1.weight                                                    (1024, 3, 14, 14)            torch.float32       602,112
+  visual.ln_post.bias                                                    (1024,)                      torch.float32         1,024
+  visual.ln_post.weight                                                  (1024,)                      torch.float32         1,024
+  visual.ln_pre.bias                                                     (1024,)                      torch.float32         1,024
+  visual.ln_pre.weight                                                   (1024,)                      torch.float32         1,024
+  visual.positional_embedding                                            (577, 1024)                  torch.float32       590,848
+  visual.proj                                                            (1024, 1024)                 torch.float32     1,048,576
+  visual.transformer.resblocks.0.attn.in_proj_bias                       (3072,)                      torch.float32         3,072
+  visual.transformer.resblocks.0.attn.in_proj_weight                     (3072, 1024)                 torch.float32     3,145,728
+  visual.transformer.resblocks.0.attn.out_proj.bias                      (1024,)                      torch.float32         1,024
+  visual.transformer.resblocks.0.attn.out_proj.weight                    (1024, 1024)                 torch.float32     1,048,576
+  visual.transformer.resblocks.0.ln_1.bias                               (1024,)                      torch.float32         1,024
+  visual.transformer.resblocks.0.ln_1.weight                             (1024,)                      torch.float32         1,024
+  visual.transformer.resblocks.0.ln_2.bias                               (1024,)                      torch.float32         1,024
+  visual.transformer.resblocks.0.ln_2.weight                             (1024,)                      torch.float32         1,024
+  visual.transformer.resblocks.0.mlp.c_fc.bias                           (4096,)                      torch.float32         4,096
+  visual.transformer.resblocks.0.mlp.c_fc.weight                         (4096, 1024)                 torch.float32     4,194,304
+  visual.transformer.resblocks.0.mlp.c_proj.bias                         (1024,)                      torch.float32         1,024
+  visual.transformer.resblocks.0.mlp.c_proj.weight                       (1024, 4096)                 torch.float32     4,194,304
+  visual.transformer.resblocks.1.attn.in_proj_bias                       (3072,)                      torch.float32         3,072
+  visual.transformer.resblocks.1.attn.in_proj_weight                     (3072, 1024)                 torch.float32     3,145,728
+  visual.transformer.resblocks.1.attn.out_proj.bias                      (1024,)                      torch.float32         1,024
+  visual.transformer.resblocks.1.attn.out_proj.weight                    (1024, 1024)                 torch.float32     1,048,576
+  visual.transformer.resblocks.1.ln_1.bias                               (1024,)                      torch.float32         1,024
+  visual.transformer.resblocks.1.ln_1.weight                             (1024,)                      torch.float32         1,024
+  visual.transformer.resblocks.1.ln_2.bias                               (1024,)                      torch.float32         1,024
+  visual.transformer.resblocks.1.ln_2.weight                             (1024,)                      torch.float32         1,024
+  visual.transformer.resblocks.1.mlp.c_fc.bias                           (4096,)                      torch.float32         4,096
+  visual.transformer.resblocks.1.mlp.c_fc.weight                         (4096, 1024)                 torch.float32     4,194,304
+  visual.transformer.resblocks.1.mlp.c_proj.bias                         (1024,)                      torch.float32         1,024
+  visual.transformer.resblocks.1.mlp.c_proj.weight                       (1024, 4096)                 torch.float32     4,194,304
+  visual.transformer.resblocks.10.attn.in_proj_bias                      (3072,)                      torch.float32         3,072
+  visual.transformer.resblocks.10.attn.in_proj_weight                    (3072, 1024)                 torch.float32     3,145,728
+  visual.transformer.resblocks.10.attn.out_proj.bias                     (1024,)                      torch.float32         1,024
+  visual.transformer.resblocks.10.attn.out_proj.weight                   (1024, 1024)                 torch.float32     1,048,576
+  visual.transformer.resblocks.10.ln_1.bias                              (1024,)                      torch.float32         1,024
+  visual.transformer.resblocks.10.ln_1.weight                            (1024,)                      torch.float32         1,024
+  visual.transformer.resblocks.10.ln_2.bias                              (1024,)                      torch.float32         1,024
+  visual.transformer.resblocks.10.ln_2.weight                            (1024,)                      torch.float32         1,024
+  visual.transformer.resblocks.10.mlp.c_fc.bias                          (4096,)                      torch.float32         4,096
+  visual.transformer.resblocks.10.mlp.c_fc.weight                        (4096, 1024)                 torch.float32     4,194,304
+  visual.transformer.resblocks.10.mlp.c_proj.bias                        (1024,)                      torch.float32         1,024
+  visual.transformer.resblocks.10.mlp.c_proj.weight                      (1024, 4096)                 torch.float32     4,194,304
+  visual.transformer.resblocks.11.attn.in_proj_bias                      (3072,)                      torch.float32         3,072
+  visual.transformer.resblocks.11.attn.in_proj_weight                    (3072, 1024)                 torch.float32     3,145,728
+  visual.transformer.resblocks.11.attn.out_proj.bias                     (1024,)                      torch.float32         1,024
+  visual.transformer.resblocks.11.attn.out_proj.weight                   (1024, 1024)                 torch.float32     1,048,576
+  visual.transformer.resblocks.11.ln_1.bias                              (1024,)                      torch.float32         1,024
+  visual.transformer.resblocks.11.ln_1.weight                            (1024,)                      torch.float32         1,024
+  visual.transformer.resblocks.11.ln_2.bias                              (1024,)                      torch.float32         1,024
+  visual.transformer.resblocks.11.ln_2.weight                            (1024,)                      torch.float32         1,024
+  visual.transformer.resblocks.11.mlp.c_fc.bias                          (4096,)                      torch.float32         4,096
+  visual.transformer.resblocks.11.mlp.c_fc.weight                        (4096, 1024)                 torch.float32     4,194,304
+  visual.transformer.resblocks.11.mlp.c_proj.bias                        (1024,)                      torch.float32         1,024
+  visual.transformer.resblocks.11.mlp.c_proj.weight                      (1024, 4096)                 torch.float32     4,194,304
+  visual.transformer.resblocks.12.attn.in_proj_bias                      (3072,)                      torch.float32         3,072
+  visual.transformer.resblocks.12.attn.in_proj_weight                    (3072, 1024)                 torch.float32     3,145,728
+  visual.transformer.resblocks.12.attn.out_proj.bias                     (1024,)                      torch.float32         1,024
+  visual.transformer.resblocks.12.attn.out_proj.weight                   (1024, 1024)                 torch.float32     1,048,576
+  visual.transformer.resblocks.12.ln_1.bias                              (1024,)                      torch.float32         1,024
+  visual.transformer.resblocks.12.ln_1.weight                            (1024,)                      torch.float32         1,024
+  visual.transformer.resblocks.12.ln_2.bias                              (1024,)                      torch.float32         1,024
+  visual.transformer.resblocks.12.ln_2.weight                            (1024,)                      torch.float32         1,024
+  visual.transformer.resblocks.12.mlp.c_fc.bias                          (4096,)                      torch.float32         4,096
+  visual.transformer.resblocks.12.mlp.c_fc.weight                        (4096, 1024)                 torch.float32     4,194,304
+  visual.transformer.resblocks.12.mlp.c_proj.bias                        (1024,)                      torch.float32         1,024
+  visual.transformer.resblocks.12.mlp.c_proj.weight                      (1024, 4096)                 torch.float32     4,194,304
+  visual.transformer.resblocks.13.attn.in_proj_bias                      (3072,)                      torch.float32         3,072
+  visual.transformer.resblocks.13.attn.in_proj_weight                    (3072, 1024)                 torch.float32     3,145,728
+  visual.transformer.resblocks.13.attn.out_proj.bias                     (1024,)                      torch.float32         1,024
+  visual.transformer.resblocks.13.attn.out_proj.weight                   (1024, 1024)                 torch.float32     1,048,576
+  visual.transformer.resblocks.13.ln_1.bias                              (1024,)                      torch.float32         1,024
+  visual.transformer.resblocks.13.ln_1.weight                            (1024,)                      torch.float32         1,024
+  visual.transformer.resblocks.13.ln_2.bias                              (1024,)                      torch.float32         1,024
+  visual.transformer.resblocks.13.ln_2.weight                            (1024,)                      torch.float32         1,024
+  visual.transformer.resblocks.13.mlp.c_fc.bias                          (4096,)                      torch.float32         4,096
+  visual.transformer.resblocks.13.mlp.c_fc.weight                        (4096, 1024)                 torch.float32     4,194,304
+  visual.transformer.resblocks.13.mlp.c_proj.bias                        (1024,)                      torch.float32         1,024
+  visual.transformer.resblocks.13.mlp.c_proj.weight                      (1024, 4096)                 torch.float32     4,194,304
+  visual.transformer.resblocks.14.attn.in_proj_bias                      (3072,)                      torch.float32         3,072
+  visual.transformer.resblocks.14.attn.in_proj_weight                    (3072, 1024)                 torch.float32     3,145,728
+  visual.transformer.resblocks.14.attn.out_proj.bias                     (1024,)                      torch.float32         1,024
+  visual.transformer.resblocks.14.attn.out_proj.weight                   (1024, 1024)                 torch.float32     1,048,576
+  visual.transformer.resblocks.14.ln_1.bias                              (1024,)                      torch.float32         1,024
+  visual.transformer.resblocks.14.ln_1.weight                            (1024,)                      torch.float32         1,024
+  visual.transformer.resblocks.14.ln_2.bias                              (1024,)                      torch.float32         1,024
+  visual.transformer.resblocks.14.ln_2.weight                            (1024,)                      torch.float32         1,024
+  visual.transformer.resblocks.14.mlp.c_fc.bias                          (4096,)                      torch.float32         4,096
+  visual.transformer.resblocks.14.mlp.c_fc.weight                        (4096, 1024)                 torch.float32     4,194,304
+  visual.transformer.resblocks.14.mlp.c_proj.bias                        (1024,)                      torch.float32         1,024
+  visual.transformer.resblocks.14.mlp.c_proj.weight                      (1024, 4096)                 torch.float32     4,194,304
+  visual.transformer.resblocks.15.attn.in_proj_bias                      (3072,)                      torch.float32         3,072
+  visual.transformer.resblocks.15.attn.in_proj_weight                    (3072, 1024)                 torch.float32     3,145,728
+  visual.transformer.resblocks.15.attn.out_proj.bias                     (1024,)                      torch.float32         1,024
+  visual.transformer.resblocks.15.attn.out_proj.weight                   (1024, 1024)                 torch.float32     1,048,576
+  visual.transformer.resblocks.15.ln_1.bias                              (1024,)                      torch.float32         1,024
+  visual.transformer.resblocks.15.ln_1.weight                            (1024,)                      torch.float32         1,024
+  visual.transformer.resblocks.15.ln_2.bias                              (1024,)                      torch.float32         1,024
+  visual.transformer.resblocks.15.ln_2.weight                            (1024,)                      torch.float32         1,024
+  visual.transformer.resblocks.15.mlp.c_fc.bias                          (4096,)                      torch.float32         4,096
+  visual.transformer.resblocks.15.mlp.c_fc.weight                        (4096, 1024)                 torch.float32     4,194,304
+  visual.transformer.resblocks.15.mlp.c_proj.bias                        (1024,)                      torch.float32         1,024
+  visual.transformer.resblocks.15.mlp.c_proj.weight                      (1024, 4096)                 torch.float32     4,194,304
+  visual.transformer.resblocks.16.attn.in_proj_bias                      (3072,)                      torch.float32         3,072
+  visual.transformer.resblocks.16.attn.in_proj_weight                    (3072, 1024)                 torch.float32     3,145,728
+  visual.transformer.resblocks.16.attn.out_proj.bias                     (1024,)                      torch.float32         1,024
+  visual.transformer.resblocks.16.attn.out_proj.weight                   (1024, 1024)                 torch.float32     1,048,576
+  visual.transformer.resblocks.16.ln_1.bias                              (1024,)                      torch.float32         1,024
+  visual.transformer.resblocks.16.ln_1.weight                            (1024,)                      torch.float32         1,024
+  visual.transformer.resblocks.16.ln_2.bias                              (1024,)                      torch.float32         1,024
+  visual.transformer.resblocks.16.ln_2.weight                            (1024,)                      torch.float32         1,024
+  visual.transformer.resblocks.16.mlp.c_fc.bias                          (4096,)                      torch.float32         4,096
+  visual.transformer.resblocks.16.mlp.c_fc.weight                        (4096, 1024)                 torch.float32     4,194,304
+  visual.transformer.resblocks.16.mlp.c_proj.bias                        (1024,)                      torch.float32         1,024
+  visual.transformer.resblocks.16.mlp.c_proj.weight                      (1024, 4096)                 torch.float32     4,194,304
+  visual.transformer.resblocks.17.attn.in_proj_bias                      (3072,)                      torch.float32         3,072
+  visual.transformer.resblocks.17.attn.in_proj_weight                    (3072, 1024)                 torch.float32     3,145,728
+  visual.transformer.resblocks.17.attn.out_proj.bias                     (1024,)                      torch.float32         1,024
+  visual.transformer.resblocks.17.attn.out_proj.weight                   (1024, 1024)                 torch.float32     1,048,576
+  visual.transformer.resblocks.17.ln_1.bias                              (1024,)                      torch.float32         1,024
+  visual.transformer.resblocks.17.ln_1.weight                            (1024,)                      torch.float32         1,024
+  visual.transformer.resblocks.17.ln_2.bias                              (1024,)                      torch.float32         1,024
+  visual.transformer.resblocks.17.ln_2.weight                            (1024,)                      torch.float32         1,024
+  visual.transformer.resblocks.17.mlp.c_fc.bias                          (4096,)                      torch.float32         4,096
+  visual.transformer.resblocks.17.mlp.c_fc.weight                        (4096, 1024)                 torch.float32     4,194,304
+  visual.transformer.resblocks.17.mlp.c_proj.bias                        (1024,)                      torch.float32         1,024
+  visual.transformer.resblocks.17.mlp.c_proj.weight                      (1024, 4096)                 torch.float32     4,194,304
+  visual.transformer.resblocks.18.attn.in_proj_bias                      (3072,)                      torch.float32         3,072
+  visual.transformer.resblocks.18.attn.in_proj_weight                    (3072, 1024)                 torch.float32     3,145,728
+  visual.transformer.resblocks.18.attn.out_proj.bias                     (1024,)                      torch.float32         1,024
+  visual.transformer.resblocks.18.attn.out_proj.weight                   (1024, 1024)                 torch.float32     1,048,576
+  visual.transformer.resblocks.18.ln_1.bias                              (1024,)                      torch.float32         1,024
+  visual.transformer.resblocks.18.ln_1.weight                            (1024,)                      torch.float32         1,024
+  visual.transformer.resblocks.18.ln_2.bias                              (1024,)                      torch.float32         1,024
+  visual.transformer.resblocks.18.ln_2.weight                            (1024,)                      torch.float32         1,024
+  visual.transformer.resblocks.18.mlp.c_fc.bias                          (4096,)                      torch.float32         4,096
+  visual.transformer.resblocks.18.mlp.c_fc.weight                        (4096, 1024)                 torch.float32     4,194,304
+  visual.transformer.resblocks.18.mlp.c_proj.bias                        (1024,)                      torch.float32         1,024
+  visual.transformer.resblocks.18.mlp.c_proj.weight                      (1024, 4096)                 torch.float32     4,194,304
+  visual.transformer.resblocks.19.attn.in_proj_bias                      (3072,)                      torch.float32         3,072
+  visual.transformer.resblocks.19.attn.in_proj_weight                    (3072, 1024)                 torch.float32     3,145,728
+  visual.transformer.resblocks.19.attn.out_proj.bias                     (1024,)                      torch.float32         1,024
+  visual.transformer.resblocks.19.attn.out_proj.weight                   (1024, 1024)                 torch.float32     1,048,576
+  visual.transformer.resblocks.19.ln_1.bias                              (1024,)                      torch.float32         1,024
+  visual.transformer.resblocks.19.ln_1.weight                            (1024,)                      torch.float32         1,024
+  visual.transformer.resblocks.19.ln_2.bias                              (1024,)                      torch.float32         1,024
+  visual.transformer.resblocks.19.ln_2.weight                            (1024,)                      torch.float32         1,024
+  visual.transformer.resblocks.19.mlp.c_fc.bias                          (4096,)                      torch.float32         4,096
+  visual.transformer.resblocks.19.mlp.c_fc.weight                        (4096, 1024)                 torch.float32     4,194,304
+  visual.transformer.resblocks.19.mlp.c_proj.bias                        (1024,)                      torch.float32         1,024
+  visual.transformer.resblocks.19.mlp.c_proj.weight                      (1024, 4096)                 torch.float32     4,194,304
+  visual.transformer.resblocks.2.attn.in_proj_bias                       (3072,)                      torch.float32         3,072
+  visual.transformer.resblocks.2.attn.in_proj_weight                     (3072, 1024)                 torch.float32     3,145,728
+  visual.transformer.resblocks.2.attn.out_proj.bias                      (1024,)                      torch.float32         1,024
+  visual.transformer.resblocks.2.attn.out_proj.weight                    (1024, 1024)                 torch.float32     1,048,576
+  visual.transformer.resblocks.2.ln_1.bias                               (1024,)                      torch.float32         1,024
+  visual.transformer.resblocks.2.ln_1.weight                             (1024,)                      torch.float32         1,024
+  visual.transformer.resblocks.2.ln_2.bias                               (1024,)                      torch.float32         1,024
+  visual.transformer.resblocks.2.ln_2.weight                             (1024,)                      torch.float32         1,024
+  visual.transformer.resblocks.2.mlp.c_fc.bias                           (4096,)                      torch.float32         4,096
+  visual.transformer.resblocks.2.mlp.c_fc.weight                         (4096, 1024)                 torch.float32     4,194,304
+  visual.transformer.resblocks.2.mlp.c_proj.bias                         (1024,)                      torch.float32         1,024
+  visual.transformer.resblocks.2.mlp.c_proj.weight                       (1024, 4096)                 torch.float32     4,194,304
+  visual.transformer.resblocks.20.attn.in_proj_bias                      (3072,)                      torch.float32         3,072
+  visual.transformer.resblocks.20.attn.in_proj_weight                    (3072, 1024)                 torch.float32     3,145,728
+  visual.transformer.resblocks.20.attn.out_proj.bias                     (1024,)                      torch.float32         1,024
+  visual.transformer.resblocks.20.attn.out_proj.weight                   (1024, 1024)                 torch.float32     1,048,576
+  visual.transformer.resblocks.20.ln_1.bias                              (1024,)                      torch.float32         1,024
+  visual.transformer.resblocks.20.ln_1.weight                            (1024,)                      torch.float32         1,024
+  visual.transformer.resblocks.20.ln_2.bias                              (1024,)                      torch.float32         1,024
+  visual.transformer.resblocks.20.ln_2.weight                            (1024,)                      torch.float32         1,024
+  visual.transformer.resblocks.20.mlp.c_fc.bias                          (4096,)                      torch.float32         4,096
+  visual.transformer.resblocks.20.mlp.c_fc.weight                        (4096, 1024)                 torch.float32     4,194,304
+  visual.transformer.resblocks.20.mlp.c_proj.bias                        (1024,)                      torch.float32         1,024
+  visual.transformer.resblocks.20.mlp.c_proj.weight                      (1024, 4096)                 torch.float32     4,194,304
+  visual.transformer.resblocks.21.attn.in_proj_bias                      (3072,)                      torch.float32         3,072
+  visual.transformer.resblocks.21.attn.in_proj_weight                    (3072, 1024)                 torch.float32     3,145,728
+  visual.transformer.resblocks.21.attn.out_proj.bias                     (1024,)                      torch.float32         1,024
+  visual.transformer.resblocks.21.attn.out_proj.weight                   (1024, 1024)                 torch.float32     1,048,576
+  visual.transformer.resblocks.21.ln_1.bias                              (1024,)                      torch.float32         1,024
+  visual.transformer.resblocks.21.ln_1.weight                            (1024,)                      torch.float32         1,024
+  visual.transformer.resblocks.21.ln_2.bias                              (1024,)                      torch.float32         1,024
+  visual.transformer.resblocks.21.ln_2.weight                            (1024,)                      torch.float32         1,024
+  visual.transformer.resblocks.21.mlp.c_fc.bias                          (4096,)                      torch.float32         4,096
+  visual.transformer.resblocks.21.mlp.c_fc.weight                        (4096, 1024)                 torch.float32     4,194,304
+  visual.transformer.resblocks.21.mlp.c_proj.bias                        (1024,)                      torch.float32         1,024
+  visual.transformer.resblocks.21.mlp.c_proj.weight                      (1024, 4096)                 torch.float32     4,194,304
+  visual.transformer.resblocks.22.attn.in_proj_bias                      (3072,)                      torch.float32         3,072
+  visual.transformer.resblocks.22.attn.in_proj_weight                    (3072, 1024)                 torch.float32     3,145,728
+  visual.transformer.resblocks.22.attn.out_proj.bias                     (1024,)                      torch.float32         1,024
+  visual.transformer.resblocks.22.attn.out_proj.weight                   (1024, 1024)                 torch.float32     1,048,576
+  visual.transformer.resblocks.22.ln_1.bias                              (1024,)                      torch.float32         1,024
+  visual.transformer.resblocks.22.ln_1.weight                            (1024,)                      torch.float32         1,024
+  visual.transformer.resblocks.22.ln_2.bias                              (1024,)                      torch.float32         1,024
+  visual.transformer.resblocks.22.ln_2.weight                            (1024,)                      torch.float32         1,024
+  visual.transformer.resblocks.22.mlp.c_fc.bias                          (4096,)                      torch.float32         4,096
+  visual.transformer.resblocks.22.mlp.c_fc.weight                        (4096, 1024)                 torch.float32     4,194,304
+  visual.transformer.resblocks.22.mlp.c_proj.bias                        (1024,)                      torch.float32         1,024
+  visual.transformer.resblocks.22.mlp.c_proj.weight                      (1024, 4096)                 torch.float32     4,194,304
+  visual.transformer.resblocks.23.attn.in_proj_bias                      (3072,)                      torch.float32         3,072
+  visual.transformer.resblocks.23.attn.in_proj_weight                    (3072, 1024)                 torch.float32     3,145,728
+  visual.transformer.resblocks.23.attn.out_proj.bias                     (1024,)                      torch.float32         1,024
+  visual.transformer.resblocks.23.attn.out_proj.weight                   (1024, 1024)                 torch.float32     1,048,576
+  visual.transformer.resblocks.23.ln_1.bias                              (1024,)                      torch.float32         1,024
+  visual.transformer.resblocks.23.ln_1.weight                            (1024,)                      torch.float32         1,024
+  visual.transformer.resblocks.23.ln_2.bias                              (1024,)                      torch.float32         1,024
+  visual.transformer.resblocks.23.ln_2.weight                            (1024,)                      torch.float32         1,024
+  visual.transformer.resblocks.23.mlp.c_fc.bias                          (4096,)                      torch.float32         4,096
+  visual.transformer.resblocks.23.mlp.c_fc.weight                        (4096, 1024)                 torch.float32     4,194,304
+  visual.transformer.resblocks.23.mlp.c_proj.bias                        (1024,)                      torch.float32         1,024
+  visual.transformer.resblocks.23.mlp.c_proj.weight                      (1024, 4096)                 torch.float32     4,194,304
+  visual.transformer.resblocks.3.attn.in_proj_bias                       (3072,)                      torch.float32         3,072
+  visual.transformer.resblocks.3.attn.in_proj_weight                     (3072, 1024)                 torch.float32     3,145,728
+  visual.transformer.resblocks.3.attn.out_proj.bias                      (1024,)                      torch.float32         1,024
+  visual.transformer.resblocks.3.attn.out_proj.weight                    (1024, 1024)                 torch.float32     1,048,576
+  visual.transformer.resblocks.3.ln_1.bias                               (1024,)                      torch.float32         1,024
+  visual.transformer.resblocks.3.ln_1.weight                             (1024,)                      torch.float32         1,024
+  visual.transformer.resblocks.3.ln_2.bias                               (1024,)                      torch.float32         1,024
+  visual.transformer.resblocks.3.ln_2.weight                             (1024,)                      torch.float32         1,024
+  visual.transformer.resblocks.3.mlp.c_fc.bias                           (4096,)                      torch.float32         4,096
+  visual.transformer.resblocks.3.mlp.c_fc.weight                         (4096, 1024)                 torch.float32     4,194,304
+  visual.transformer.resblocks.3.mlp.c_proj.bias                         (1024,)                      torch.float32         1,024
+  visual.transformer.resblocks.3.mlp.c_proj.weight                       (1024, 4096)                 torch.float32     4,194,304
+  visual.transformer.resblocks.4.attn.in_proj_bias                       (3072,)                      torch.float32         3,072
+  visual.transformer.resblocks.4.attn.in_proj_weight                     (3072, 1024)                 torch.float32     3,145,728
+  visual.transformer.resblocks.4.attn.out_proj.bias                      (1024,)                      torch.float32         1,024
+  visual.transformer.resblocks.4.attn.out_proj.weight                    (1024, 1024)                 torch.float32     1,048,576
+  visual.transformer.resblocks.4.ln_1.bias                               (1024,)                      torch.float32         1,024
+  visual.transformer.resblocks.4.ln_1.weight                             (1024,)                      torch.float32         1,024
+  visual.transformer.resblocks.4.ln_2.bias                               (1024,)                      torch.float32         1,024
+  visual.transformer.resblocks.4.ln_2.weight                             (1024,)                      torch.float32         1,024
+  visual.transformer.resblocks.4.mlp.c_fc.bias                           (4096,)                      torch.float32         4,096
+  visual.transformer.resblocks.4.mlp.c_fc.weight                         (4096, 1024)                 torch.float32     4,194,304
+  visual.transformer.resblocks.4.mlp.c_proj.bias                         (1024,)                      torch.float32         1,024
+  visual.transformer.resblocks.4.mlp.c_proj.weight                       (1024, 4096)                 torch.float32     4,194,304
+  visual.transformer.resblocks.5.attn.in_proj_bias                       (3072,)                      torch.float32         3,072
+  visual.transformer.resblocks.5.attn.in_proj_weight                     (3072, 1024)                 torch.float32     3,145,728
+  visual.transformer.resblocks.5.attn.out_proj.bias                      (1024,)                      torch.float32         1,024
+  visual.transformer.resblocks.5.attn.out_proj.weight                    (1024, 1024)                 torch.float32     1,048,576
+  visual.transformer.resblocks.5.ln_1.bias                               (1024,)                      torch.float32         1,024
+  visual.transformer.resblocks.5.ln_1.weight                             (1024,)                      torch.float32         1,024
+  visual.transformer.resblocks.5.ln_2.bias                               (1024,)                      torch.float32         1,024
+  visual.transformer.resblocks.5.ln_2.weight                             (1024,)                      torch.float32         1,024
+  visual.transformer.resblocks.5.mlp.c_fc.bias                           (4096,)                      torch.float32         4,096
+  visual.transformer.resblocks.5.mlp.c_fc.weight                         (4096, 1024)                 torch.float32     4,194,304
+  visual.transformer.resblocks.5.mlp.c_proj.bias                         (1024,)                      torch.float32         1,024
+  visual.transformer.resblocks.5.mlp.c_proj.weight                       (1024, 4096)                 torch.float32     4,194,304
+  visual.transformer.resblocks.6.attn.in_proj_bias                       (3072,)                      torch.float32         3,072
+  visual.transformer.resblocks.6.attn.in_proj_weight                     (3072, 1024)                 torch.float32     3,145,728
+  visual.transformer.resblocks.6.attn.out_proj.bias                      (1024,)                      torch.float32         1,024
+  visual.transformer.resblocks.6.attn.out_proj.weight                    (1024, 1024)                 torch.float32     1,048,576
+  visual.transformer.resblocks.6.ln_1.bias                               (1024,)                      torch.float32         1,024
+  visual.transformer.resblocks.6.ln_1.weight                             (1024,)                      torch.float32         1,024
+  visual.transformer.resblocks.6.ln_2.bias                               (1024,)                      torch.float32         1,024
+  visual.transformer.resblocks.6.ln_2.weight                             (1024,)                      torch.float32         1,024
+  visual.transformer.resblocks.6.mlp.c_fc.bias                           (4096,)                      torch.float32         4,096
+  visual.transformer.resblocks.6.mlp.c_fc.weight                         (4096, 1024)                 torch.float32     4,194,304
+  visual.transformer.resblocks.6.mlp.c_proj.bias                         (1024,)                      torch.float32         1,024
+  visual.transformer.resblocks.6.mlp.c_proj.weight                       (1024, 4096)                 torch.float32     4,194,304
+  visual.transformer.resblocks.7.attn.in_proj_bias                       (3072,)                      torch.float32         3,072
+  visual.transformer.resblocks.7.attn.in_proj_weight                     (3072, 1024)                 torch.float32     3,145,728
+  visual.transformer.resblocks.7.attn.out_proj.bias                      (1024,)                      torch.float32         1,024
+  visual.transformer.resblocks.7.attn.out_proj.weight                    (1024, 1024)                 torch.float32     1,048,576
+  visual.transformer.resblocks.7.ln_1.bias                               (1024,)                      torch.float32         1,024
+  visual.transformer.resblocks.7.ln_1.weight                             (1024,)                      torch.float32         1,024
+  visual.transformer.resblocks.7.ln_2.bias                               (1024,)                      torch.float32         1,024
+  visual.transformer.resblocks.7.ln_2.weight                             (1024,)                      torch.float32         1,024
+  visual.transformer.resblocks.7.mlp.c_fc.bias                           (4096,)                      torch.float32         4,096
+  visual.transformer.resblocks.7.mlp.c_fc.weight                         (4096, 1024)                 torch.float32     4,194,304
+  visual.transformer.resblocks.7.mlp.c_proj.bias                         (1024,)                      torch.float32         1,024
+  visual.transformer.resblocks.7.mlp.c_proj.weight                       (1024, 4096)                 torch.float32     4,194,304
+  visual.transformer.resblocks.8.attn.in_proj_bias                       (3072,)                      torch.float32         3,072
+  visual.transformer.resblocks.8.attn.in_proj_weight                     (3072, 1024)                 torch.float32     3,145,728
+  visual.transformer.resblocks.8.attn.out_proj.bias                      (1024,)                      torch.float32         1,024
+  visual.transformer.resblocks.8.attn.out_proj.weight                    (1024, 1024)                 torch.float32     1,048,576
+  visual.transformer.resblocks.8.ln_1.bias                               (1024,)                      torch.float32         1,024
+  visual.transformer.resblocks.8.ln_1.weight                             (1024,)                      torch.float32         1,024
+  visual.transformer.resblocks.8.ln_2.bias                               (1024,)                      torch.float32         1,024
+  visual.transformer.resblocks.8.ln_2.weight                             (1024,)                      torch.float32         1,024
+  visual.transformer.resblocks.8.mlp.c_fc.bias                           (4096,)                      torch.float32         4,096
+  visual.transformer.resblocks.8.mlp.c_fc.weight                         (4096, 1024)                 torch.float32     4,194,304
+  visual.transformer.resblocks.8.mlp.c_proj.bias                         (1024,)                      torch.float32         1,024
+  visual.transformer.resblocks.8.mlp.c_proj.weight                       (1024, 4096)                 torch.float32     4,194,304
+  visual.transformer.resblocks.9.attn.in_proj_bias                       (3072,)                      torch.float32         3,072
+  visual.transformer.resblocks.9.attn.in_proj_weight                     (3072, 1024)                 torch.float32     3,145,728
+  visual.transformer.resblocks.9.attn.out_proj.bias                      (1024,)                      torch.float32         1,024
+  visual.transformer.resblocks.9.attn.out_proj.weight                    (1024, 1024)                 torch.float32     1,048,576
+  visual.transformer.resblocks.9.ln_1.bias                               (1024,)                      torch.float32         1,024
+  visual.transformer.resblocks.9.ln_1.weight                             (1024,)                      torch.float32         1,024
+  visual.transformer.resblocks.9.ln_2.bias                               (1024,)                      torch.float32         1,024
+  visual.transformer.resblocks.9.ln_2.weight                             (1024,)                      torch.float32         1,024
+  visual.transformer.resblocks.9.mlp.c_fc.bias                           (4096,)                      torch.float32         4,096
+  visual.transformer.resblocks.9.mlp.c_fc.weight                         (4096, 1024)                 torch.float32     4,194,304
+  visual.transformer.resblocks.9.mlp.c_proj.bias                         (1024,)                      torch.float32         1,024
+  visual.transformer.resblocks.9.mlp.c_proj.weight                       (1024, 4096)                 torch.float32     4,194,304

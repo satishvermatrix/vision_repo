@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="820" viewBox="0 0 1400 820" role="img">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0b1220"/>
+      <stop offset="100%" stop-color="#152033"/>
+    </linearGradient>
+    <linearGradient id="gBlue" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#1e3a5f"/><stop offset="100%" stop-color="#254a73"/>
+    </linearGradient>
+    <linearGradient id="gGreen" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#1a4d3a"/><stop offset="100%" stop-color="#1f6348"/>
+    </linearGradient>
+    <linearGradient id="gBrown" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#4a3420"/><stop offset="100%" stop-color="#5c4228"/>
+    </linearGradient>
+    <linearGradient id="gPurp" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#3a2a55"/><stop offset="100%" stop-color="#4a3670"/>
+    </linearGradient>
+    <linearGradient id="gTeal" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#1f4a5c"/><stop offset="100%" stop-color="#276078"/>
+    </linearGradient>
+    <linearGradient id="gOk" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#1d5c38"/><stop offset="100%" stop-color="#247a48"/>
+    </linearGradient>
+    <marker id="arr" markerWidth="10" markerHeight="10" refX="8" refY="4" orient="auto">
+      <path d="M0,0 L8,4 L0,8 Z" fill="#8fa3bf"/>
+    </marker>
+    <filter id="soft" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="#000" flood-opacity="0.35"/>
+    </filter>
+    <style>
+      .title { font: 700 28px ui-sans-serif, system-ui, sans-serif; fill: #f2f6fc; }
+      .sub { font: 400 14px ui-sans-serif, system-ui, sans-serif; fill: #8fa3bf; }
+      .boxh { font: 700 15px ui-sans-serif, system-ui, sans-serif; fill: #f2f6fc; }
+      .boxs { font: 400 12px ui-sans-serif, system-ui, sans-serif; fill: #b8c7da; }
+      .stage { font: 700 12px ui-sans-serif, system-ui, sans-serif; fill: #7d93ad; letter-spacing: 0.06em; }
+      .ok { font: 700 13px ui-sans-serif, system-ui, sans-serif; fill: #7dffb0; }
+      .emph { font: 600 13px ui-sans-serif, system-ui, sans-serif; fill: #e8c48a; }
+      .big { font: 700 18px ui-sans-serif, system-ui, sans-serif; fill: #f2f6fc; }
+      .tiny { font: 400 11px ui-sans-serif, system-ui, sans-serif; fill: #8fa3bf; }
+      .layer { font: 600 11px ui-sans-serif, system-ui, sans-serif; fill: #d5deeb; }
+    </style>
+  </defs>
+
+  <rect width="1400" height="820" fill="url(#bg)"/>
+  <text x="48" y="42" class="title">Why PE Works for Many Vision Tasks</text>
+  <text x="48" y="68" class="sub">One contrastive backbone · rich features inside the network · align / finetune for each job</text>
+
+  <!-- Core insight -->
+  <rect x="48" y="90" width="1304" height="70" rx="14" fill="#141e2c" stroke="#3a4f68"/>
+  <text x="68" y="120" class="emph">Key idea</text>
+  <text x="68" y="142" class="boxs">Contrastive PE-Core already learns strong general features — but the best ones are often in earlier / middle layers, not always at the final output.</text>
+
+  <!-- Backbone -->
+  <text x="48" y="196" class="stage">PE-CORE BACKBONE  (contrastive pretraining)</text>
+
+  <g filter="url(#soft)">
+    <rect x="48" y="214" width="160" height="90" rx="12" fill="url(#gBlue)" stroke="#5a7eab"/>
+    <text x="128" y="254" text-anchor="middle" class="boxh">Image</text>
+    <text x="128" y="278" text-anchor="middle" class="tiny">input</text>
+  </g>
+  <line x1="208" y1="259" x2="244" y2="259" stroke="#8fa3bf" stroke-width="2" marker-end="url(#arr)"/>
+
+  <!-- Layer stack visual -->
+  <g filter="url(#soft)">
+    <rect x="248" y="214" width="520" height="90" rx="12" fill="#101824" stroke="#2a3c52"/>
+    <text x="268" y="240" class="tiny">ViT layers (early → late)</text>
+    <!-- early -->
+    <rect x="268" y="254" width="70" height="36" rx="6" fill="#3a6ea5"/>
+    <text x="303" y="277" text-anchor="middle" class="layer">early</text>
+    <rect x="348" y="254" width="70" height="36" rx="6" fill="#4a7eb5"/>
+    <text x="383" y="277" text-anchor="middle" class="layer">mid</text>
+    <rect x="428" y="254" width="90" height="36" rx="6" fill="#5c90c4"/>
+    <text x="473" y="277" text-anchor="middle" class="layer">mid-late</text>
+    <rect x="528" y="254" width="70" height="36" rx="6" fill="#2a4a6a"/>
+    <text x="563" y="277" text-anchor="middle" class="layer">late</text>
+    <rect x="608" y="254" width="130" height="36" rx="6" fill="url(#gGreen)" stroke="#4e9a6e"/>
+    <text x="673" y="277" text-anchor="middle" class="layer">CLIP output</text>
+  </g>
+  <line x1="768" y1="259" x2="804" y2="259" stroke="#8fa3bf" stroke-width="2" marker-end="url(#arr)"/>
+
+  <g filter="url(#soft)">
+    <rect x="808" y="214" width="220" height="90" rx="12" fill="url(#gGreen)" stroke="#4e9a6e"/>
+    <text x="918" y="254" text-anchor="middle" class="boxh">Global vector</text>
+    <text x="918" y="278" text-anchor="middle" class="tiny">retrieval / classification</text>
+  </g>
+
+  <g filter="url(#soft)">
+    <rect x="1060" y="214" width="292" height="90" rx="12" fill="#1a2434" stroke="#3a4f68"/>
+    <text x="1080" y="250" class="boxh">Hidden strength</text>
+    <text x="1080" y="276" class="boxs">Best features for other</text>
+    <text x="1080" y="296" class="boxs">tasks sit mid-network</text>
+  </g>
+
+  <!-- Branch arrows from mid layers -->
+  <text x="48" y="350" class="stage">TAKE FEATURES FROM THE RIGHT DEPTH  →  FINETUNE / ALIGN</text>
+
+  <!-- Three branches -->
+  <!-- Spatial -->
+  <path d="M383 304 L383 380" fill="none" stroke="#8fa3bf" stroke-width="2" marker-end="url(#arr)"/>
+  <path d="M473 304 L473 340 L700 340 L700 380" fill="none" stroke="#8fa3bf" stroke-width="2" marker-end="url(#arr)"/>
+  <path d="M473 304 L473 340 L1100 340 L1100 380" fill="none" stroke="#8fa3bf" stroke-width="2" marker-end="url(#arr)"/>
+
+  <g filter="url(#soft)">
+    <rect x="48" y="388" width="400" height="220" rx="16" fill="url(#gBrown)" stroke="#a07848"/>
+    <text x="68" y="424" class="stage">SPATIAL ALIGNMENT</text>
+    <text x="68" y="456" class="big">PE-Spatial</text>
+    <text x="68" y="490" class="boxs">Use mid-layer features</text>
+    <text x="68" y="512" class="boxs">(still spatially detailed)</text>
+    <text x="68" y="544" class="ok">→ Detection</text>
+    <text x="68" y="568" class="ok">→ Segmentation / depth</text>
+    <text x="68" y="592" class="ok">→ Tracking</text>
+  </g>
+
+  <g filter="url(#soft)">
+    <rect x="500" y="388" width="400" height="220" rx="16" fill="url(#gPurp)" stroke="#7a62a0"/>
+    <text x="520" y="424" class="stage">LANGUAGE ALIGNMENT</text>
+    <text x="520" y="456" class="big">PE-Lang</text>
+    <text x="520" y="490" class="boxs">Lift strong mid features</text>
+    <text x="520" y="512" class="boxs">to the output + projector</text>
+    <text x="520" y="544" class="ok">→ MLLM / VQA</text>
+    <text x="520" y="568" class="ok">→ Captioning / OCR</text>
+    <text x="520" y="592" class="ok">→ Generative answers</text>
+  </g>
+
+  <g filter="url(#soft)">
+    <rect x="952" y="388" width="400" height="220" rx="16" fill="url(#gGreen)" stroke="#4e9a6e"/>
+    <text x="972" y="424" class="stage">AS-IS OUTPUT</text>
+    <text x="972" y="456" class="big">PE-Core</text>
+    <text x="972" y="490" class="boxs">Final global embedding</text>
+    <text x="972" y="512" class="boxs">(shared with text tower)</text>
+    <text x="972" y="544" class="ok">→ Retrieval</text>
+    <text x="972" y="568" class="ok">→ Zero-shot classification</text>
+    <text x="972" y="592" class="ok">→ Video chunk search</text>
+  </g>
+
+  <!-- Bottom -->
+  <rect x="48" y="640" width="1304" height="140" rx="16" fill="#101824" stroke="#2a3c52"/>
+  <text x="68" y="678" class="stage">SIMPLE STORY</text>
+  <text x="68" y="714" class="big">Pretrain once with contrastive learning → reuse the same backbone many ways</text>
+  <text x="68" y="748" class="boxs">Different tasks need different depths and heads — alignment / finetuning “draws out” the right features.</text>
+  <text x="68" y="774" class="tiny">That is why one PE family covers retrieval, dense vision, and generative multimodal tasks.</text>
+</svg>

@@ -1,0 +1,145 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="780" viewBox="0 0 1100 780" role="img" aria-label="PE-Core-L14-336 architecture">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0f1419"/>
+      <stop offset="100%" stop-color="#1a2332"/>
+    </linearGradient>
+    <linearGradient id="vision" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#1e3a5f"/>
+      <stop offset="100%" stop-color="#152a45"/>
+    </linearGradient>
+    <linearGradient id="text" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#3d2a1e"/>
+      <stop offset="100%" stop-color="#2a1e15"/>
+    </linearGradient>
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L6,3 L0,6 Z" fill="#8b9cb3"/>
+    </marker>
+    <style>
+      .title { font: 700 22px ui-sans-serif, system-ui, sans-serif; fill: #e8eef7; }
+      .sub { font: 400 13px ui-sans-serif, system-ui, sans-serif; fill: #8b9cb3; }
+      .h { font: 700 14px ui-sans-serif, system-ui, sans-serif; fill: #e8eef7; }
+      .t { font: 400 12px ui-monospace, SFMono-Regular, Menlo, monospace; fill: #c5d0e0; }
+      .s { font: 400 11px ui-sans-serif, system-ui, sans-serif; fill: #8b9cb3; }
+      .box { stroke: #3d4f66; stroke-width: 1.2; rx: 8; }
+      .pill { font: 600 11px ui-sans-serif, system-ui, sans-serif; fill: #e8eef7; }
+      .stat { font: 500 12px ui-sans-serif, system-ui, sans-serif; fill: #a8b8cc; }
+    </style>
+  </defs>
+
+  <rect width="1100" height="780" fill="url(#bg)"/>
+
+  <!-- Title -->
+  <text x="40" y="42" class="title">PE-Core-L14-336</text>
+  <text x="40" y="64" class="sub">CLIP dual encoder · 671M params · shared 1024-d space · from checkpoint explore</text>
+
+  <!-- Stats bar -->
+  <rect x="40" y="82" width="1020" height="36" rx="8" fill="#121a24" stroke="#2a3a4e"/>
+  <text x="56" y="105" class="stat">2.5 GB · fp32 · 601 tensors · vision 47% · text body 45% · token embed 7.5%</text>
+
+  <!-- ========== VISION COLUMN ========== -->
+  <rect x="40" y="140" width="480" height="520" rx="14" fill="url(#vision)" stroke="#2d4a6e"/>
+  <text x="60" y="168" class="h">VISION TOWER  ·  visual.*  ·  ~317M</text>
+
+  <!-- input -->
+  <rect x="70" y="188" width="160" height="48" class="box" fill="#0d1520"/>
+  <text x="90" y="210" class="t">RGB image</text>
+  <text x="90" y="226" class="s">336 × 336 × 3</text>
+
+  <line x1="150" y1="236" x2="150" y2="258" stroke="#8b9cb3" marker-end="url(#arrow)"/>
+
+  <!-- conv1 -->
+  <rect x="70" y="258" width="420" height="48" class="box" fill="#0d1520"/>
+  <text x="90" y="280" class="t">conv1  patch embed</text>
+  <text x="90" y="296" class="s">14×14 kernel ’ (1024, 3, 14, 14) · 24×24 = 576 patches</text>
+
+  <line x1="280" y1="306" x2="280" y2="328" stroke="#8b9cb3" marker-end="url(#arrow)"/>
+
+  <!-- tokens -->
+  <rect x="70" y="328" width="420" height="48" class="box" fill="#0d1520"/>
+  <text x="90" y="350" class="t">+ class_embedding  +  positional_embedding</text>
+  <text x="90" y="366" class="s">(577, 1024) = 1 CLS + 576 patches · ln_pre</text>
+
+  <line x1="280" y1="376" x2="280" y2="398" stroke="#8b9cb3" marker-end="url(#arrow)"/>
+
+  <!-- transformer stack -->
+  <rect x="70" y="398" width="420" height="100" class="box" fill="#0d1520"/>
+  <text x="90" y="424" class="t">visual.transformer.resblocks[0..23]</text>
+  <text x="90" y="444" class="s">24 × Transformer block · width 1024 · 16 heads</text>
+  <text x="90" y="462" class="s">Attn QKV (3072×1024) · MLP 1024’4096’1024 · ~302M</text>
+  <!-- mini stack visual -->
+  <rect x="400" y="412" width="70" height="12" rx="2" fill="#3a6ea5"/>
+  <rect x="400" y="428" width="70" height="12" rx="2" fill="#3a6ea5" opacity="0.75"/>
+  <rect x="400" y="444" width="70" height="12" rx="2" fill="#3a6ea5" opacity="0.5"/>
+  <rect x="400" y="460" width="70" height="12" rx="2" fill="#3a6ea5" opacity="0.35"/>
+
+  <line x1="280" y1="498" x2="280" y2="520" stroke="#8b9cb3" marker-end="url(#arrow)"/>
+
+  <!-- attn pool -->
+  <rect x="70" y="520" width="420" height="48" class="box" fill="#0d1520"/>
+  <text x="90" y="542" class="t">attn_pool  (+ ln_post)</text>
+  <text x="90" y="558" class="s">attention pooling with probe ’ single 1024-d · ~12.6M</text>
+
+  <line x1="280" y1="568" x2="280" y2="590" stroke="#8b9cb3" marker-end="url(#arrow)"/>
+
+  <!-- proj -->
+  <rect x="70" y="590" width="420" height="48" class="box" fill="#1a3d2a" stroke="#3d7a55"/>
+  <text x="90" y="612" class="t">visual.proj  (1024 ’ 1024)</text>
+  <text x="90" y="628" class="s">image / frame embedding  (L2-normalized at encode)</text>
+
+  <!-- ========== TEXT COLUMN ========== -->
+  <rect x="560" y="140" width="500" height="520" rx="14" fill="url(#text)" stroke="#6e4a2d"/>
+  <text x="580" y="168" class="h">TEXT TOWER  ·  ~302M + vocab  ·  ~354M</text>
+
+  <!-- input text -->
+  <rect x="590" y="188" width="200" height="48" class="box" fill="#0d1520"/>
+  <text x="610" y="210" class="t">NLQ string</text>
+  <text x="610" y="226" class="s">e.g. "riding a horse"</text>
+
+  <line x1="690" y1="236" x2="690" y2="258" stroke="#8b9cb3" marker-end="url(#arrow)"/>
+
+  <!-- tok -->
+  <rect x="590" y="258" width="440" height="48" class="box" fill="#0d1520"/>
+  <text x="610" y="280" class="t">token_embedding  (49408 × 1024)</text>
+  <text x="610" y="296" class="s">CLIP BPE vocab · ~50.6M params · context length 32</text>
+
+  <line x1="810" y1="306" x2="810" y2="328" stroke="#8b9cb3" marker-end="url(#arrow)"/>
+
+  <!-- pos -->
+  <rect x="590" y="328" width="440" height="40" class="box" fill="#0d1520"/>
+  <text x="610" y="354" class="t">+ positional_embedding  (32 × 1024)</text>
+
+  <line x1="810" y1="368" x2="810" y2="390" stroke="#8b9cb3" marker-end="url(#arrow)"/>
+
+  <!-- text transformer -->
+  <rect x="590" y="390" width="440" height="100" class="box" fill="#0d1520"/>
+  <text x="610" y="416" class="t">transformer.resblocks[0..23]</text>
+  <text x="610" y="436" class="s">24 × Transformer block · width 1024 · 16 heads</text>
+  <text x="610" y="454" class="s">Same block recipe as vision · ~302M</text>
+  <rect x="920" y="404" width="70" height="12" rx="2" fill="#c47a3a"/>
+  <rect x="920" y="420" width="70" height="12" rx="2" fill="#c47a3a" opacity="0.75"/>
+  <rect x="920" y="436" width="70" height="12" rx="2" fill="#c47a3a" opacity="0.5"/>
+  <rect x="920" y="452" width="70" height="12" rx="2" fill="#c47a3a" opacity="0.35"/>
+
+  <line x1="810" y1="490" x2="810" y2="512" stroke="#8b9cb3" marker-end="url(#arrow)"/>
+
+  <!-- ln final -->
+  <rect x="590" y="512" width="440" height="40" class="box" fill="#0d1520"/>
+  <text x="610" y="538" class="t">ln_final  ’  take EOT token features</text>
+
+  <line x1="810" y1="552" x2="810" y2="574" stroke="#8b9cb3" marker-end="url(#arrow)"/>
+
+  <!-- text proj -->
+  <rect x="590" y="574" width="440" height="48" class="box" fill="#1a3d2a" stroke="#3d7a55"/>
+  <text x="610" y="596" class="t">text_projection  (1024 ’ 1024)</text>
+  <text x="610" y="612" class="s">text embedding  (L2-normalized at encode)</text>
+
+  <!-- ========== JOINT SPACE ========== -->
+  <rect x="40" y="680" width="1020" height="72" rx="12" fill="#122018" stroke="#3d7a55"/>
+  <text x="60" y="708" class="h">SHARED EMBEDDING SPACE  ·  1024-d  ·  logit_scale</text>
+  <text x="60" y="730" class="s">videosearch: mean-pool frame embeds ’ chunk vector · NLQ ’ text vector · score = cosine (dot of L2-norms)</text>
+
+  <!-- arrows into joint -->
+  <line x1="280" y1="638" x2="280" y2="680" stroke="#5a9e72" stroke-width="2" marker-end="url(#arrow)"/>
+  <line x1="810" y1="622" x2="810" y2="680" stroke="#5a9e72" stroke-width="2" marker-end="url(#arrow)"/>
+</svg>

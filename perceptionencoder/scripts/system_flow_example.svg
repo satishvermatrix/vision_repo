@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1480" height="900" viewBox="0 0 1480 900" role="img" aria-label="Worked example fight cascade">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0b1220"/>
+      <stop offset="100%" stop-color="#152033"/>
+    </linearGradient>
+    <linearGradient id="g1" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#1e3a5f"/>
+      <stop offset="100%" stop-color="#254a73"/>
+    </linearGradient>
+    <linearGradient id="g2" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#1a4d3a"/>
+      <stop offset="100%" stop-color="#1f6348"/>
+    </linearGradient>
+    <linearGradient id="g3" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#4a3420"/>
+      <stop offset="100%" stop-color="#5c4228"/>
+    </linearGradient>
+    <linearGradient id="g4" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#3a2a55"/>
+      <stop offset="100%" stop-color="#4a3670"/>
+    </linearGradient>
+    <linearGradient id="g5" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#1f4a5c"/>
+      <stop offset="100%" stop-color="#276078"/>
+    </linearGradient>
+    <linearGradient id="gOk" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#1d5c38"/>
+      <stop offset="100%" stop-color="#247a48"/>
+    </linearGradient>
+    <linearGradient id="gFp" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#5c2a2a"/>
+      <stop offset="100%" stop-color="#7a3434"/>
+    </linearGradient>
+    <marker id="arr" markerWidth="10" markerHeight="10" refX="8" refY="4" orient="auto">
+      <path d="M0,0 L8,4 L0,8 Z" fill="#8fa3bf"/>
+    </marker>
+    <filter id="soft" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="#000" flood-opacity="0.35"/>
+    </filter>
+    <style>
+      .title { font: 700 28px ui-sans-serif, system-ui, sans-serif; fill: #f2f6fc; }
+      .sub { font: 400 14px ui-sans-serif, system-ui, sans-serif; fill: #8fa3bf; }
+      .boxh { font: 700 15px ui-sans-serif, system-ui, sans-serif; fill: #f2f6fc; }
+      .boxs { font: 400 12px ui-sans-serif, system-ui, sans-serif; fill: #b8c7da; }
+      .mono { font: 500 12px ui-monospace, Menlo, monospace; fill: #c9d6e8; }
+      .monoSm { font: 500 11px ui-monospace, Menlo, monospace; fill: #a8b8cc; }
+      .lbl { font: 600 11px ui-sans-serif, system-ui, sans-serif; fill: #9eb0c7; }
+      .stage { font: 700 11px ui-sans-serif, system-ui, sans-serif; fill: #7d93ad; letter-spacing: 0.08em; }
+      .pill { font: 600 11px ui-sans-serif, system-ui, sans-serif; fill: #d5deeb; }
+      .ok { font: 700 13px ui-sans-serif, system-ui, sans-serif; fill: #7dffb0; }
+      .fp { font: 700 13px ui-sans-serif, system-ui, sans-serif; fill: #ff9b9b; }
+      .rationale { font: 400 12px ui-sans-serif, system-ui, sans-serif; fill: #c5d2e4; }
+      .thresh { font: 600 12px ui-sans-serif, system-ui, sans-serif; fill: #e8c48a; }
+    </style>
+  </defs>
+
+  <rect width="1480" height="900" fill="url(#bg)"/>
+  <text x="48" y="42" class="title">Worked Example — Confirm event: fight</text>
+  <text x="48" y="66" class="sub">Mock walkthrough of one candidate through PE retrieval and VLM verification</text>
+
+  <!-- Threshold banner -->
+  <rect x="48" y="84" width="1384" height="44" rx="10" fill="#141e2c" stroke="#3a4f68"/>
+  <text x="68" y="111" class="thresh">Thresholds</text>
+  <text x="170" y="111" class="mono">min_pe_score = 0.20</text>
+  <text x="420" y="111" class="mono">confirm_threshold = 0.55</text>
+  <text x="720" y="111" class="mono">top_k = 5</text>
+  <text x="880" y="111" class="boxs">rule: confirmed  iff  present=true  AND  confidence &gt;= 0.55</text>
+
+  <!-- ROW 1 pipeline -->
+  <text x="48" y="158" class="stage">1. INDEX  →  QUERY  →  RANK</text>
+
+  <g filter="url(#soft)">
+    <rect x="48" y="172" width="200" height="120" rx="14" fill="url(#g1)" stroke="#5a7eab" stroke-width="1.5"/>
+    <text x="148" y="202" text-anchor="middle" class="boxh">Video clip</text>
+    <text x="148" y="226" text-anchor="middle" class="monoSm">sword_duel_01.mp4</text>
+    <text x="148" y="246" text-anchor="middle" class="boxs">10s clip</text>
+    <text x="148" y="268" text-anchor="middle" class="monoSm">chunk 0–2s</text>
+  </g>
+
+  <g filter="url(#soft)">
+    <rect x="288" y="172" width="200" height="120" rx="14" fill="url(#g1)" stroke="#5a7eab" stroke-width="1.5"/>
+    <text x="388" y="202" text-anchor="middle" class="boxh">Chunk frames</text>
+    <text x="388" y="226" text-anchor="middle" class="boxs">8 frames sampled</text>
+    <text x="388" y="246" text-anchor="middle" class="monoSm">t = [0.0 … 2.0]</text>
+    <text x="388" y="268" text-anchor="middle" class="boxs">window id #142</text>
+  </g>
+
+  <g filter="url(#soft)">
+    <rect x="528" y="172" width="210" height="120" rx="14" fill="url(#g2)" stroke="#4e9a6e" stroke-width="1.5"/>
+    <text x="633" y="202" text-anchor="middle" class="boxh">PE vision embed</text>
+    <text x="633" y="226" text-anchor="middle" class="monoSm">v ∈ R^1024</text>
+    <text x="633" y="246" text-anchor="middle" class="boxs">mean-pool + L2</text>
+    <text x="633" y="268" text-anchor="middle" class="monoSm">||v|| = 1.0</text>
+  </g>
+
+  <g filter="url(#soft)">
+    <rect x="778" y="172" width="230" height="120" rx="14" fill="url(#g2)" stroke="#4e9a6e" stroke-width="1.5"/>
+    <text x="893" y="198" text-anchor="middle" class="boxh">Text query</text>
+    <text x="893" y="222" text-anchor="middle" class="boxs">“people fighting /</text>
+    <text x="893" y="240" text-anchor="middle" class="boxs">physical combat”</text>
+    <text x="893" y="264" text-anchor="middle" class="monoSm">q ∈ R^1024</text>
+  </g>
+
+  <g filter="url(#soft)">
+    <rect x="1048" y="172" width="220" height="120" rx="14" fill="url(#g4)" stroke="#7a62a0" stroke-width="1.5"/>
+    <text x="1158" y="202" text-anchor="middle" class="boxh">Cosine rank</text>
+    <text x="1158" y="226" text-anchor="middle" class="mono">score = v · q</text>
+    <text x="1158" y="250" text-anchor="middle" class="mono">pe_score = 0.290</text>
+    <text x="1158" y="272" text-anchor="middle" class="ok">≥ 0.20  → keep</text>
+  </g>
+
+  <line x1="248" y1="232" x2="284" y2="232" stroke="#8fa3bf" stroke-width="2" marker-end="url(#arr)"/>
+  <line x1="488" y1="232" x2="524" y2="232" stroke="#8fa3bf" stroke-width="2" marker-end="url(#arr)"/>
+  <line x1="738" y1="232" x2="774" y2="232" stroke="#8fa3bf" stroke-width="2" marker-end="url(#arr)"/>
+  <line x1="1008" y1="232" x2="1044" y2="232" stroke="#8fa3bf" stroke-width="2" marker-end="url(#arr)"/>
+
+  <!-- PE shortlist table -->
+  <text x="48" y="330" class="stage">2. PE CANDIDATE SHORTLIST  (after min_pe_score filter)</text>
+  <rect x="48" y="344" width="1384" height="130" rx="14" fill="#101824" stroke="#2a3c52"/>
+
+  <!-- header -->
+  <text x="72" y="372" class="lbl">rank</text>
+  <text x="140" y="372" class="lbl">video</text>
+  <text x="420" y="372" class="lbl">window</text>
+  <text x="560" y="372" class="lbl">pe_score</text>
+  <text x="700" y="372" class="lbl">pass?</text>
+  <text x="820" y="372" class="lbl">note</text>
+
+  <!-- row 1 highlighted -->
+  <rect x="60" y="384" width="1360" height="26" rx="6" fill="#1a2f48"/>
+  <text x="72" y="402" class="mono">1</text>
+  <text x="140" y="402" class="mono">sword_duel_01.mp4</text>
+  <text x="420" y="402" class="mono">0.0 – 2.0 s</text>
+  <text x="560" y="402" class="mono">0.290</text>
+  <text x="700" y="402" class="ok">yes</text>
+  <text x="820" y="402" class="boxs">← focus of this example</text>
+
+  <text x="72" y="430" class="monoSm">2</text>
+  <text x="140" y="430" class="monoSm">sword_duel_01.mp4</text>
+  <text x="420" y="430" class="monoSm">4.0 – 6.0 s</text>
+  <text x="560" y="430" class="monoSm">0.289</text>
+  <text x="700" y="430" class="ok">yes</text>
+  <text x="820" y="430" class="boxs">same video, later window</text>
+
+  <text x="72" y="454" class="monoSm">3</text>
+  <text x="140" y="454" class="monoSm">crowd_cheer_07.mp4</text>
+  <text x="420" y="454" class="monoSm">2.0 – 4.0 s</text>
+  <text x="560" y="454" class="monoSm">0.241</text>
+  <text x="700" y="454" class="ok">yes</text>
+  <text x="820" y="454" class="boxs">likely false positive → VLM will reject</text>
+
+  <!-- VLM stage -->
+  <text x="48" y="510" class="stage">3. VLM VERIFICATION  (rank-1 candidate)</text>
+
+  <g filter="url(#soft)">
+    <rect x="48" y="524" width="220" height="140" rx="14" fill="url(#g1)" stroke="#5a7eab" stroke-width="1.5"/>
+    <text x="158" y="556" text-anchor="middle" class="boxh">Sample frames</text>
+    <text x="158" y="580" text-anchor="middle" class="boxs">6 frames from</text>
+    <text x="158" y="598" text-anchor="middle" class="monoSm">0.0 – 2.0 s</text>
+    <text x="158" y="622" text-anchor="middle" class="boxs">fed to VLM</text>
+    <text x="158" y="642" text-anchor="middle" class="boxs">as multi-image input</text>
+  </g>
+
+  <g filter="url(#soft)">
+    <rect x="308" y="524" width="280" height="140" rx="14" fill="url(#g5)" stroke="#4a8aa0" stroke-width="1.5"/>
+    <text x="448" y="556" text-anchor="middle" class="boxh">Vision-Language Model</text>
+    <text x="448" y="580" text-anchor="middle" class="boxs">event definition: fight</text>
+    <text x="448" y="598" text-anchor="middle" class="boxs">“interpersonal physical combat”</text>
+    <text x="448" y="626" text-anchor="middle" class="monoSm">asks: present? confidence?</text>
+    <text x="448" y="646" text-anchor="middle" class="monoSm">rationale?</text>
+  </g>
+
+  <g filter="url(#soft)">
+    <rect x="628" y="524" width="320" height="140" rx="14" fill="#162032" stroke="#3d5a78" stroke-width="1.5"/>
+    <text x="648" y="552" class="boxh">VLM JSON verdict</text>
+    <text x="648" y="578" class="mono">present: true</text>
+    <text x="648" y="600" class="mono">confidence: 0.85</text>
+    <text x="648" y="622" class="mono">0.85 ≥ 0.55  → pass</text>
+    <text x="648" y="646" class="ok">confirmed: true</text>
+  </g>
+
+  <g filter="url(#soft)">
+    <rect x="988" y="524" width="444" height="140" rx="14" fill="url(#gOk)" stroke="#4e9a6e" stroke-width="1.5"/>
+    <text x="1210" y="560" text-anchor="middle" class="boxh">Output</text>
+    <text x="1210" y="588" text-anchor="middle" class="ok">CONFIRMED fight</text>
+    <text x="1210" y="614" text-anchor="middle" class="monoSm">ok_sword_duel_01_0-2.mp4</text>
+    <text x="1210" y="638" text-anchor="middle" class="boxs">export clip + write report</text>
+  </g>
+
+  <line x1="268" y1="594" x2="304" y2="594" stroke="#8fa3bf" stroke-width="2" marker-end="url(#arr)"/>
+  <line x1="588" y1="594" x2="624" y2="594" stroke="#8fa3bf" stroke-width="2" marker-end="url(#arr)"/>
+  <line x1="948" y1="594" x2="984" y2="594" stroke="#8fa3bf" stroke-width="2" marker-end="url(#arr)"/>
+
+  <!-- Rationale box -->
+  <rect x="48" y="686" width="1384" height="88" rx="14" fill="#101824" stroke="#2a3c52"/>
+  <text x="68" y="714" class="boxh">VLM rationale (mock)</text>
+  <text x="68" y="738" class="rationale">“The frames show two individuals in combat attire, wielding swords and engaging in a physical confrontation.</text>
+  <text x="68" y="756" class="rationale">Spectators and a stage suggest a public event. This matches the definition of a fight as interpersonal combat.”</text>
+
+  <!-- FP contrast -->
+  <rect x="48" y="792" width="1384" height="80" rx="14" fill="#1a1218" stroke="#5a3a3a"/>
+  <text x="68" y="820" class="boxh">Contrast — rank-3 false positive (crowd_cheer_07)</text>
+  <text x="68" y="846" class="monoSm">pe_score 0.241 (≥ 0.20 kept)   →   VLM: present=false, confidence=0.72   →   confirmed=false   →   fp_crowd_cheer_07_2-4.mp4</text>
+  <text x="68" y="862" class="rationale">“People cheering and jumping; no interpersonal combat visible.”</text>
+</svg>

@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1480" height="920" viewBox="0 0 1480 920" role="img">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0b1220"/>
+      <stop offset="100%" stop-color="#152033"/>
+    </linearGradient>
+    <linearGradient id="gBlue" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#1e3a5f"/><stop offset="100%" stop-color="#254a73"/>
+    </linearGradient>
+    <linearGradient id="gGreen" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#1a4d3a"/><stop offset="100%" stop-color="#1f6348"/>
+    </linearGradient>
+    <linearGradient id="gBrown" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#4a3420"/><stop offset="100%" stop-color="#5c4228"/>
+    </linearGradient>
+    <linearGradient id="gPurp" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#3a2a55"/><stop offset="100%" stop-color="#4a3670"/>
+    </linearGradient>
+    <linearGradient id="gTeal" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#1f4a5c"/><stop offset="100%" stop-color="#276078"/>
+    </linearGradient>
+    <linearGradient id="gOk" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#1d5c38"/><stop offset="100%" stop-color="#247a48"/>
+    </linearGradient>
+    <linearGradient id="gBad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#5c2a2a"/><stop offset="100%" stop-color="#7a3434"/>
+    </linearGradient>
+    <filter id="soft" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="#000" flood-opacity="0.35"/>
+    </filter>
+    <style>
+      .title { font: 700 28px ui-sans-serif, system-ui, sans-serif; fill: #f2f6fc; }
+      .sub { font: 400 14px ui-sans-serif, system-ui, sans-serif; fill: #8fa3bf; }
+      .boxh { font: 700 15px ui-sans-serif, system-ui, sans-serif; fill: #f2f6fc; }
+      .boxs { font: 400 12px ui-sans-serif, system-ui, sans-serif; fill: #b8c7da; }
+      .mono { font: 600 12px ui-monospace, Menlo, monospace; fill: #c9d6e8; }
+      .monoSm { font: 500 11px ui-monospace, Menlo, monospace; fill: #a8b8cc; }
+      .stage { font: 700 12px ui-sans-serif, system-ui, sans-serif; fill: #7d93ad; letter-spacing: 0.06em; }
+      .ok { font: 700 13px ui-sans-serif, system-ui, sans-serif; fill: #7dffb0; }
+      .bad { font: 700 13px ui-sans-serif, system-ui, sans-serif; fill: #ff9b9b; }
+      .emph { font: 600 13px ui-sans-serif, system-ui, sans-serif; fill: #e8c48a; }
+      .big { font: 700 17px ui-sans-serif, system-ui, sans-serif; fill: #f2f6fc; }
+      .tiny { font: 400 11px ui-sans-serif, system-ui, sans-serif; fill: #8fa3bf; }
+      .hdr { font: 600 11px ui-sans-serif, system-ui, sans-serif; fill: #9eb0c7; }
+    </style>
+  </defs>
+
+  <rect width="1480" height="920" fill="url(#bg)"/>
+  <text x="48" y="42" class="title">Prompt Ensemble vs Single Prompt</text>
+  <text x="48" y="68" class="sub">Mock PE cosine scores for event = fight  ·  keep if score ≥ 0.20  ·  ensemble = max over prompts</text>
+
+  <!-- Prompts -->
+  <rect x="48" y="90" width="1384" height="88" rx="14" fill="#141e2c" stroke="#3a4f68"/>
+  <text x="68" y="122" class="emph">Ensemble prompts (P1–P4)</text>
+  <text x="68" y="148" class="monoSm">P1 “people fighting”   P2 “two people punching each other”   P3 “a boxing match fight”   P4 “sword fighting combat”</text>
+  <text x="68" y="166" class="tiny">Single-prompt baseline uses only P1</text>
+
+  <!-- Score table -->
+  <text x="48" y="216" class="stage">MOCK SCORES  (chunk × prompt)</text>
+  <rect x="48" y="230" width="1384" height="280" rx="14" fill="#101824" stroke="#2a3c52"/>
+
+  <!-- header -->
+  <text x="68" y="262" class="hdr">chunk (true label)</text>
+  <text x="420" y="262" class="hdr">P1</text>
+  <text x="520" y="262" class="hdr">P2</text>
+  <text x="620" y="262" class="hdr">P3</text>
+  <text x="720" y="262" class="hdr">P4</text>
+  <text x="860" y="262" class="hdr">single (P1 only)</text>
+  <text x="1100" y="262" class="hdr">ensemble = max(P)</text>
+
+  <!-- row 1 street fight -->
+  <rect x="60" y="276" width="1360" height="36" rx="6" fill="#163028"/>
+  <text x="68" y="300" class="mono">street_brawl.mp4  [true fight]</text>
+  <text x="420" y="300" class="mono">0.31</text>
+  <text x="520" y="300" class="mono">0.34</text>
+  <text x="620" y="300" class="mono">0.22</text>
+  <text x="720" y="300" class="mono">0.18</text>
+  <text x="860" y="300" class="ok">0.31  KEEP</text>
+  <text x="1100" y="300" class="ok">0.34  KEEP</text>
+
+  <!-- row 2 sword -->
+  <rect x="60" y="318" width="1360" height="36" rx="6" fill="#1a2f48"/>
+  <text x="68" y="342" class="mono">sword_duel.mp4    [true fight]</text>
+  <text x="420" y="342" class="mono">0.16</text>
+  <text x="520" y="342" class="mono">0.14</text>
+  <text x="620" y="342" class="mono">0.12</text>
+  <text x="720" y="342" class="ok">0.29</text>
+  <text x="860" y="342" class="bad">0.16  MISS</text>
+  <text x="1100" y="342" class="ok">0.29  KEEP</text>
+
+  <!-- row 3 boxing -->
+  <rect x="60" y="360" width="1360" height="36" rx="6" fill="#163028"/>
+  <text x="68" y="384" class="mono">boxing_ring.mp4   [true fight]</text>
+  <text x="420" y="384" class="mono">0.19</text>
+  <text x="520" y="384" class="mono">0.27</text>
+  <text x="620" y="384" class="ok">0.33</text>
+  <text x="720" y="384" class="mono">0.11</text>
+  <text x="860" y="384" class="bad">0.19  MISS</text>
+  <text x="1100" y="384" class="ok">0.33  KEEP</text>
+
+  <!-- row 4 crowd FP -->
+  <rect x="60" y="402" width="1360" height="36" rx="6" fill="#2a1818"/>
+  <text x="68" y="426" class="mono">crowd_cheer.mp4   [not fight]</text>
+  <text x="420" y="426" class="mono">0.23</text>
+  <text x="520" y="426" class="mono">0.21</text>
+  <text x="620" y="426" class="mono">0.17</text>
+  <text x="720" y="426" class="mono">0.10</text>
+  <text x="860" y="426" class="bad">0.23  FP</text>
+  <text x="1100" y="426" class="bad">0.23  FP</text>
+
+  <!-- row 5 bag -->
+  <rect x="60" y="444" width="1360" height="36" rx="6" fill="#1a2434"/>
+  <text x="68" y="468" class="mono">punching_bag.mp4  [not fight]</text>
+  <text x="420" y="468" class="mono">0.15</text>
+  <text x="520" y="468" class="mono">0.24</text>
+  <text x="620" y="468" class="mono">0.18</text>
+  <text x="720" y="468" class="mono">0.09</text>
+  <text x="860" y="468" class="ok">0.15  OK drop</text>
+  <text x="1100" y="468" class="bad">0.24  FP</text>
+
+  <text x="68" y="500" class="tiny">Highlight: sword + boxing are true fights missed by P1 alone — ensemble recovers them via P4 / P3.</text>
+
+  <!-- Comparison summary -->
+  <text x="48" y="548" class="stage">OUTCOME ON THIS MOCK SET</text>
+
+  <g filter="url(#soft)">
+    <rect x="48" y="564" width="440" height="180" rx="16" fill="url(#gBad)" stroke="#a05050"/>
+    <text x="68" y="600" class="boxh">Single prompt (P1 only)</text>
+    <text x="68" y="634" class="boxs">True fights kept:  1 / 3</text>
+    <text x="68" y="658" class="bad">Missed: sword_duel, boxing_ring</text>
+    <text x="68" y="690" class="boxs">False positives: 1 (crowd)</text>
+    <text x="68" y="722" class="tiny">Recall weak when visuals ≠ phrasing</text>
+  </g>
+
+  <g filter="url(#soft)">
+    <rect x="520" y="564" width="440" height="180" rx="16" fill="url(#gOk)" stroke="#4e9a6e"/>
+    <text x="540" y="600" class="boxh">Prompt ensemble (max)</text>
+    <text x="540" y="634" class="boxs">True fights kept:  3 / 3</text>
+    <text x="540" y="658" class="ok">Recovered sword + boxing variants</text>
+    <text x="540" y="690" class="boxs">False positives: 2 (crowd, bag)</text>
+    <text x="540" y="722" class="tiny">Higher recall — extra FPs → VLM stage</text>
+  </g>
+
+  <g filter="url(#soft)">
+    <rect x="992" y="564" width="440" height="180" rx="16" fill="url(#gPurp)" stroke="#7a62a0"/>
+    <text x="1012" y="600" class="boxh">Why better for cascade</text>
+    <text x="1012" y="634" class="boxs">Stage-1 job = high recall</text>
+    <text x="1012" y="658" class="boxs">Cover visual synonyms cheaply</text>
+    <text x="1012" y="690" class="ok">Don’t miss rare fight styles</text>
+    <text x="1012" y="722" class="tiny">VLM rejects punching_bag / crowd</text>
+  </g>
+
+  <!-- Bottom -->
+  <rect x="48" y="770" width="1384" height="120" rx="14" fill="#101824" stroke="#2a3c52"/>
+  <text x="68" y="808" class="big">Ensemble = OR over short visual phrasings</text>
+  <text x="68" y="840" class="boxs">Better coverage of event variants than one prompt. Slightly more FPs is OK — that is what VLM verification is for.</text>
+  <text x="68" y="868" class="tiny">Aggregation: score = max_p cos(v, q_p)   ·   same as cascade.py</text>
+</svg>

@@ -1,0 +1,50 @@
+[project]
+name = "videosearch"
+version = "0.1.0"
+description = "Natural-language video search using Meta's Perception Encoder (PE-Core CLIP)"
+readme = "README.md"
+authors = [
+    { name = "Satish Verma", email = "satishvdata2025@gmail.com" }
+]
+requires-python = ">=3.12,<3.13"
+dependencies = [
+    "torch==2.9.1",
+    "torchvision==0.24.1",
+    "numpy>=2.1",
+    "pillow>=10.4",
+    "opencv-python-headless>=4.10",
+    "timm>=1.0.11",
+    "einops>=0.8",
+    "ftfy>=6.2",
+    "regex>=2024.9",
+    "huggingface-hub>=0.26",
+    "tqdm>=4.66",
+    "transformers>=4.57.0",
+    "accelerate>=1.0",
+    "qwen-vl-utils>=0.0.14",
+]
+
+[project.scripts]
+videosearch = "videosearch.cli:main"
+
+[project.optional-dependencies]
+test = [
+    "pytest>=8.0",
+]
+
+[build-system]
+requires = ["uv_build>=0.11.15,<0.12.0"]
+build-backend = "uv_build"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]
+
+[[tool.uv.index]]
+name = "pytorch-cu130"
+url = "https://download.pytorch.org/whl/cu130"
+explicit = true
+
+[tool.uv.sources]
+torch = { index = "pytorch-cu130" }
+torchvision = { index = "pytorch-cu130" }
