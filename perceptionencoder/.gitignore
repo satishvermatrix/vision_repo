@@ -1,3 +1,6 @@
+# Nested git metadata (do not commit)
+.git.nested.bak/
+
 # Python-generated files
 __pycache__/
 *.py[oc]
