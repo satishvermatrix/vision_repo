@@ -1,0 +1,11 @@
+[project]
+name = "qwen35"
+version = "0.1.0"
+description = "Event detection with Qwen3.5-35B-A3B via OpenRouter (Phase 1: text probe)"
+requires-python = ">=3.12"
+dependencies = [
+    "openai>=1.100",
+]
+
+[tool.uv]
+package = false
