@@ -1,0 +1,7 @@
+=== downloading Qwen/Qwen3-VL-Embedding-2B ===
+Hint: A new version of huggingface_hub (2.1.1) is available! You are using version 1.25.1.
+To update, run: hf update
+path=/home/satishv/.cache/huggingface/hub/models--Qwen--Qwen3-VL-Embedding-2B/snapshots/9f2f7e710d6d81056aa5c0a4f04764fec6bb7bda
+=== downloading Qwen/Qwen3-VL-Reranker-2B ===
+path=/home/satishv/.cache/huggingface/hub/models--Qwen--Qwen3-VL-Reranker-2B/snapshots/4bd860ac4f15ad1897a214615cccc700f8f71818
+=== downloading Qwen/Qwen3-VL-Embedding-8B ===

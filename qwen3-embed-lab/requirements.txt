@@ -1,0 +1,31 @@
+# Exact working environment for this lab (GB10 / DGX Spark, aarch64, CUDA 13)
+# Install order matters: the pytorch cu130 index must be used for torch/torchvision.
+#
+#   python3 -m venv .venv
+#   .venv/bin/pip install --extra-index-url https://download.pytorch.org/whl/cu130 \
+#       torch==2.9.0+cu130 torchvision==0.24.0
+#   .venv/bin/pip install -r requirements.txt
+#
+# Notes:
+# - transformers 4.57.x: newer 4.57 patches are fine; 4.57.3 has an
+#   additional_chat_templates bug (see lab_helpers.py: HF_HUB_OFFLINE=1 workaround).
+# - av is PINNED to 13.1.0: torchvision 0.24's read_video passes a kwarg that
+#   av 19 removed. decord has no aarch64 wheels, so torchvision is the video backend.
+
+--extra-index-url https://download.pytorch.org/whl/cu130
+torch==2.9.0+cu130
+torchvision==0.24.0
+av==13.1.0
+transformers==4.57.6
+qwen-vl-utils==0.0.14
+accelerate==1.12.0
+numpy==2.2.6
+scipy==1.18.1
+pillow==12.0.0
+matplotlib==3.11.2
+seaborn==0.13.2
+pandas==3.0.6
+jupyterlab==4.6.4
+ipykernel==7.4.0
+nbconvert==7.17.1
+nbformat==5.11.1

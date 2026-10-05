@@ -1,0 +1,7 @@
+=== downloading Qwen/Qwen3-VL-Embedding-2B ===
+path=/home/satishv/.cache/huggingface/hub/models--Qwen--Qwen3-VL-Embedding-2B/snapshots/9f2f7e710d6d81056aa5c0a4f04764fec6bb7bda
+=== downloading Qwen/Qwen3-VL-Reranker-2B ===
+path=/home/satishv/.cache/huggingface/hub/models--Qwen--Qwen3-VL-Reranker-2B/snapshots/4bd860ac4f15ad1897a214615cccc700f8f71818
+=== downloading Qwen/Qwen3-VL-Embedding-8B ===
+path=/home/satishv/.cache/huggingface/hub/models--Qwen--Qwen3-VL-Embedding-8B/snapshots/2c4565515e0f265c6511776e7193b22c0968ddc7
+ALL_MODELS_DONE
